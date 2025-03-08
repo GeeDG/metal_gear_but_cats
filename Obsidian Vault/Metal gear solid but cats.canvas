@@ -1,0 +1,22 @@
+{
+	"nodes":[
+		{"id":"87275d670af48b26","type":"text","text":"# Road map","x":-180,"y":-320,"width":200,"height":50,"color":"1"},
+		{"id":"425080114e67a030","type":"text","text":"## Character controller\nFondamentali:\n- Movimenti\n\t- Camminata\n\t- Corsa\n\t- Abbassarsi\n","x":-500,"y":-160,"width":292,"height":240},
+		{"id":"a1ccc6fe01581b26","type":"text","text":"## Cono di visibilità\nAumenta il livello di Alert, cambia in base a chi lo possiede\n","x":60,"y":-160,"width":250,"height":151,"color":"1"},
+		{"id":"1276aaa245ec259d","type":"text","text":"Secondari:\n- Lanciare un oggetto (risorse per distrarre dal livello di alert)","x":-840,"y":-9,"width":250,"height":149},
+		{"id":"b66547184fd42d33","type":"text","text":"### Telecamere","x":560,"y":-140,"width":184,"height":60},
+		{"id":"fa72d5a63203d9d4","type":"text","text":"### Guardie","x":560,"y":-40,"width":146,"height":62},
+		{"id":"84060733b19bb90b","type":"text","text":"Terziari:\n- Meccanica di \"combattimento\", dove si può tramortire un nemico distratto","x":-840,"y":240,"width":250,"height":162},
+		{"id":"69f90b1c730f1cdd","type":"text","text":"## Livello di Alert\n- Si inizia con un numerino che si alza sull'UI\n- Il livello di Alert, in futuro, dovrebbe cambiare in base a quanto è alto","x":-60,"y":191,"width":240,"height":260}
+	],
+	"edges":[
+		{"id":"87d2bb1d6fceb0f2","fromNode":"87275d670af48b26","fromSide":"bottom","toNode":"425080114e67a030","toSide":"top"},
+		{"id":"3a844366fd0d4b51","fromNode":"87275d670af48b26","fromSide":"bottom","toNode":"a1ccc6fe01581b26","toSide":"top"},
+		{"id":"db828cc5215e3eb2","fromNode":"425080114e67a030","fromSide":"left","toNode":"1276aaa245ec259d","toSide":"right"},
+		{"id":"53af51aa27469249","fromNode":"a1ccc6fe01581b26","fromSide":"right","toNode":"b66547184fd42d33","toSide":"left"},
+		{"id":"bc167f263b85ef6e","fromNode":"a1ccc6fe01581b26","fromSide":"right","toNode":"fa72d5a63203d9d4","toSide":"left"},
+		{"id":"1432dc66b8533d2d","fromNode":"a1ccc6fe01581b26","fromSide":"bottom","toNode":"69f90b1c730f1cdd","toSide":"top"},
+		{"id":"958ddb2f3e20f0c1","fromNode":"425080114e67a030","fromSide":"right","toNode":"69f90b1c730f1cdd","toSide":"top"},
+		{"id":"a75791c7c11c58ed","fromNode":"1276aaa245ec259d","fromSide":"bottom","toNode":"84060733b19bb90b","toSide":"top"}
+	]
+}
