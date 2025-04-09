@@ -1,8 +1,0 @@
-res://Scenes/test_level_1.tscn
-res://Models/Primitives/Cone.tres
-res://Scripts/Camera/CameraOverrideArea.cs
-res://Scripts/Enemies/Guard.cs
-res://Scripts/Enemies/Vision.cs
-res://Scripts/Enemies/CCTV.cs
-res://Scripts/Player/PlayerController.cs
-res://Scripts/Camera/CameraManager.cs
