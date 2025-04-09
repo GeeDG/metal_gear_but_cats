@@ -93,11 +93,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/carminedipinto/metal_gear_but_cats/Mice-Eater.csproj",
+      "projectUniqueName": "/Users/carminedipinto/Documents/GitHub/metal_gear_but_cats/Mice-Eater.csproj",
       "projectName": "Mice-Eater",
-      "projectPath": "/Users/carminedipinto/metal_gear_but_cats/Mice-Eater.csproj",
+      "projectPath": "/Users/carminedipinto/Documents/GitHub/metal_gear_but_cats/Mice-Eater.csproj",
       "packagesPath": "/Users/carminedipinto/.nuget/packages/",
-      "outputPath": "/Users/carminedipinto/metal_gear_but_cats/.godot/mono/temp/obj/",
+      "outputPath": "/Users/carminedipinto/Documents/GitHub/metal_gear_but_cats/.godot/mono/temp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/carminedipinto/.nuget/NuGet/NuGet.Config"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uI4N5RKkPTg=",
+  "dgSpecHash": "4QnxPzA663o=",
   "success": true,
-  "projectFilePath": "/Users/carminedipinto/metal_gear_but_cats/Mice-Eater.csproj",
+  "projectFilePath": "/Users/carminedipinto/Documents/GitHub/metal_gear_but_cats/Mice-Eater.csproj",
   "expectedPackageFiles": [
     "/Users/carminedipinto/.nuget/packages/godot.sourcegenerators/4.2.2/godot.sourcegenerators.4.2.2.nupkg.sha512",
     "/Users/carminedipinto/.nuget/packages/godotsharp/4.2.2/godotsharp.4.2.2.nupkg.sha512",

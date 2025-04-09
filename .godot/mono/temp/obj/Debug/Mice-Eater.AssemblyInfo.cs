@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mice-Eater")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8044c2c045e53d1fbb935f1b781f4f1ae5ea729d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b842eb30f5b66655742aa4d73773fafafe296616")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mice-Eater")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mice-Eater")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
