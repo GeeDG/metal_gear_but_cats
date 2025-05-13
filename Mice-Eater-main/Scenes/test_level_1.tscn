@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://dw2d4ket615ga"]
+[gd_scene load_steps=66 format=3 uid="uid://dw2d4ket615ga"]
 
 [ext_resource type="Texture2D" uid="uid://n8437jffxkun" path="res://Imports/kenney_prototype-textures/PNG/Dark/texture_01.png" id="1_d4tyk"]
 [ext_resource type="PackedScene" uid="uid://btr8mpar2vywo" path="res://Prefabs/Test/test_player.tscn" id="2_f78hn"]
@@ -25,11 +25,11 @@ vertices = PackedVector3Array(-24, 0.5, -23.25, -16, 0.5, -23.25, -16, 0.5, -25.
 polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 10), PackedInt32Array(8, 10, 9), PackedInt32Array(14, 13, 11), PackedInt32Array(11, 13, 12), PackedInt32Array(17, 16, 15), PackedInt32Array(20, 19, 18), PackedInt32Array(21, 25, 22), PackedInt32Array(22, 25, 24), PackedInt32Array(22, 24, 23), PackedInt32Array(29, 28, 26), PackedInt32Array(26, 28, 27), PackedInt32Array(33, 32, 30), PackedInt32Array(30, 32, 31), PackedInt32Array(36, 35, 34), PackedInt32Array(38, 37, 39), PackedInt32Array(39, 37, 41), PackedInt32Array(39, 41, 40), PackedInt32Array(45, 44, 42), PackedInt32Array(42, 44, 43), PackedInt32Array(48, 47, 46), PackedInt32Array(50, 49, 51), PackedInt32Array(51, 49, 52), PackedInt32Array(52, 49, 53), PackedInt32Array(56, 55, 54), PackedInt32Array(60, 59, 57), PackedInt32Array(57, 59, 58), PackedInt32Array(62, 61, 63), PackedInt32Array(63, 61, 64), PackedInt32Array(64, 61, 66), PackedInt32Array(64, 66, 65), PackedInt32Array(69, 68, 67), PackedInt32Array(73, 72, 70), PackedInt32Array(70, 72, 71), PackedInt32Array(75, 74, 76), PackedInt32Array(76, 74, 77), PackedInt32Array(77, 74, 79), PackedInt32Array(77, 79, 78), PackedInt32Array(82, 81, 80), PackedInt32Array(85, 84, 83), PackedInt32Array(89, 88, 86), PackedInt32Array(86, 88, 87), PackedInt32Array(95, 94, 90), PackedInt32Array(90, 94, 91), PackedInt32Array(91, 94, 92), PackedInt32Array(92, 94, 93), PackedInt32Array(99, 98, 96), PackedInt32Array(96, 98, 97), PackedInt32Array(105, 104, 100), PackedInt32Array(100, 104, 103), PackedInt32Array(100, 103, 102), PackedInt32Array(100, 102, 101), PackedInt32Array(109, 108, 106), PackedInt32Array(106, 108, 107), PackedInt32Array(113, 112, 110), PackedInt32Array(110, 112, 111), PackedInt32Array(116, 115, 114), PackedInt32Array(118, 117, 119), PackedInt32Array(119, 117, 120), PackedInt32Array(120, 117, 121), PackedInt32Array(124, 123, 122), PackedInt32Array(126, 125, 127), PackedInt32Array(127, 125, 129), PackedInt32Array(127, 129, 128), PackedInt32Array(133, 132, 130), PackedInt32Array(130, 132, 131), PackedInt32Array(137, 136, 134), PackedInt32Array(134, 136, 135), PackedInt32Array(141, 140, 138), PackedInt32Array(138, 140, 139), PackedInt32Array(144, 143, 142), PackedInt32Array(147, 146, 145), PackedInt32Array(149, 148, 150), PackedInt32Array(150, 148, 152), PackedInt32Array(150, 152, 151), PackedInt32Array(155, 154, 153), PackedInt32Array(158, 157, 156), PackedInt32Array(159, 163, 160), PackedInt32Array(160, 163, 162), PackedInt32Array(160, 162, 161), PackedInt32Array(167, 166, 164), PackedInt32Array(164, 166, 165)]
 agent_radius = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qdeuo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2en4"]
 albedo_texture = ExtResource("1_d4tyk")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kqxsv"]
-material = SubResource("StandardMaterial3D_qdeuo")
+material = SubResource("StandardMaterial3D_c2en4")
 size = Vector2(10, 30)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nprpj"]
@@ -38,11 +38,11 @@ data = PackedVector3Array(5, 0, 15, -5, 0, 15, 5, 0, -15, -5, 0, 15, -5, 0, -15,
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4ex2t"]
 data = PackedVector3Array(5, 0, 15, -5, 0, 15, 5, 0, -15, -5, 0, 15, -5, 0, -15, 5, 0, -15)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_137ca"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6s8pd"]
 albedo_texture = ExtResource("1_d4tyk")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2lycd"]
-material = SubResource("StandardMaterial3D_137ca")
+material = SubResource("StandardMaterial3D_6s8pd")
 size = Vector2(10, 10)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_88x1d"]
@@ -57,11 +57,11 @@ data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mer0v"]
 data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efsjk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_de0gq"]
 albedo_texture = ExtResource("1_d4tyk")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hy4u5"]
-material = SubResource("StandardMaterial3D_efsjk")
+material = SubResource("StandardMaterial3D_de0gq")
 size = Vector2(10, 50)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4f4i2"]
@@ -70,11 +70,11 @@ data = PackedVector3Array(5, 0, 25, -5, 0, 25, 5, 0, -25, -5, 0, 25, -5, 0, -25,
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_asmie"]
 data = PackedVector3Array(5, 0, 25, -5, 0, 25, 5, 0, -25, -5, 0, 25, -5, 0, -25, 5, 0, -25)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5kic"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vx2s3"]
 albedo_texture = ExtResource("1_d4tyk")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_53nv8"]
-material = SubResource("StandardMaterial3D_b5kic")
+material = SubResource("StandardMaterial3D_vx2s3")
 size = Vector2(70, 10)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7vd07"]
@@ -83,11 +83,11 @@ data = PackedVector3Array(35, 0, 5, -35, 0, 5, 35, 0, -5, -35, 0, 5, -35, 0, -5,
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lxvbq"]
 data = PackedVector3Array(35, 0, 5, -35, 0, 5, 35, 0, -5, -35, 0, 5, -35, 0, -5, 35, 0, -5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_skxy0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y477v"]
 albedo_texture = ExtResource("2_tqr8l")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2x4k0"]
-material = SubResource("StandardMaterial3D_skxy0")
+material = SubResource("StandardMaterial3D_y477v")
 size = Vector2(30, 5)
 center_offset = Vector3(2.08165e-12, 2.5, 2.08165e-12)
 orientation = 2
@@ -98,11 +98,11 @@ data = PackedVector3Array(15, 0, 0, -15, 0, 0, 15, 5, 0, -15, 0, 0, -15, 5, 0, 1
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8m50q"]
 data = PackedVector3Array(15, 0, 0, -15, 0, 0, 15, 5, 0, -15, 0, 0, -15, 5, 0, 15, 5, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ou0uq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vyrt7"]
 albedo_texture = ExtResource("2_tqr8l")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_c16gk"]
-material = SubResource("StandardMaterial3D_ou0uq")
+material = SubResource("StandardMaterial3D_vyrt7")
 flip_faces = true
 size = Vector2(10, 5)
 center_offset = Vector3(2.08165e-12, 2.5, 2.08165e-12)
@@ -159,8 +159,11 @@ data = PackedVector3Array(-5, 0, 0, 5, 0, 0, 5, 5, 0, -5, 5, 0, -5, 0, 0, 5, 5, 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bsxbe"]
 data = PackedVector3Array(-5, 0, 0, 5, 0, 0, 5, 5, 0, -5, 5, 0, -5, 0, 0, 5, 5, 0)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h6eqv"]
+albedo_texture = ExtResource("2_tqr8l")
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_p33tx"]
-material = SubResource("StandardMaterial3D_ou0uq")
+material = SubResource("StandardMaterial3D_h6eqv")
 flip_faces = true
 size = Vector2(70, 5)
 center_offset = Vector3(2.08165e-12, 2.5, 2.08165e-12)
@@ -179,7 +182,7 @@ data = PackedVector3Array(-35, 0, 0, 35, 0, 0, 35, 5, 0, -35, 5, 0, -35, 0, 0, 3
 data = PackedVector3Array(-35, 0, 0, 35, 0, 0, 35, 5, 0, -35, 5, 0, -35, 0, 0, 35, 5, 0)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3gwo0"]
-material = SubResource("StandardMaterial3D_ou0uq")
+material = SubResource("StandardMaterial3D_h6eqv")
 flip_faces = true
 size = Vector2(50, 5)
 center_offset = Vector3(2.08165e-12, 2.5, 2.08165e-12)
@@ -684,20 +687,17 @@ transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Guard" parent="Enemies" node_paths=PackedStringArray("patrolPoints") instance=ExtResource("5_3qgux")]
-patrolPoints = [NodePath("../../Patrol Points/Inner Ring/Node3D"), NodePath("../../Patrol Points/Inner Ring/Node3D2"), NodePath("../../Patrol Points/Inner Ring/Node3D3"), NodePath("../../Patrol Points/Inner Ring/Node3D4")]
+[node name="Guard" parent="Enemies" instance=ExtResource("5_3qgux")]
 
 [node name="CCTV" parent="Enemies" instance=ExtResource("6_k32qe")]
 transform = Transform3D(-1, 3.48787e-16, 8.74227e-08, 3.48787e-16, 1, -3.48787e-16, -8.74227e-08, -3.48787e-16, -1, -24.4476, 4.25453, -34.4523)
 from = -180.0
 to = -90.0
 
-[node name="Guard2" parent="Enemies" node_paths=PackedStringArray("patrolPoints") instance=ExtResource("5_3qgux")]
+[node name="Guard2" parent="Enemies" instance=ExtResource("5_3qgux")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, -2.68601e-06, 1, -30.7244)
-patrolPoints = [NodePath("../../Patrol Points/Outer Ring/Node3D4"), NodePath("../../Patrol Points/Outer Ring/Node3D5"), NodePath("../../Patrol Points/Outer Ring/Node3D6"), NodePath("../../Patrol Points/Outer Ring/Node3D7")]
 overrideWaitTimes = {}
 
-[node name="Guard3" parent="Enemies" node_paths=PackedStringArray("patrolPoints") instance=ExtResource("5_3qgux")]
+[node name="Guard3" parent="Enemies" instance=ExtResource("5_3qgux")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 11.6557, 1, 6.6645)
-patrolPoints = [NodePath("../../Patrol Points/Node3D")]
 patrolPointWaitTime = 2.0

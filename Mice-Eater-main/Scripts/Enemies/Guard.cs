@@ -141,7 +141,7 @@ public partial class Guard : CharacterBody3D
 
 	void Patrol(float deltaTime)
 	{
-		if (targetReached && navigationAgent.TargetPosition == patrolPoints[currentPatrolPoint].GlobalPosition)
+		if (targetReached && GlobalTransform.Origin.DistanceTo(patrolPoints[currentPatrolPoint].GlobalTransform.Origin) < 0.1f)
 		{
 			navigationAgent.Velocity = navigationAgent.TargetPosition - GlobalPosition;
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs04wqem23naf"
-path.s3tc="res://.godot/imported/texture_07.png-65bab96c2f04222ee92a24b30ec7c3a5.s3tc.ctex"
+uid="uid://di2jj4c4ry7a6"
+path.s3tc="res://.godot/imported/696.jpg-2858cb220fae11091e34a40c08953e81.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Imports/kenney_prototype-textures/PNG/Light/texture_07.png"
-dest_files=["res://.godot/imported/texture_07.png-65bab96c2f04222ee92a24b30ec7c3a5.s3tc.ctex"]
+source_file="res://Imports/earth-texture/696.jpg"
+dest_files=["res://.godot/imported/696.jpg-2858cb220fae11091e34a40c08953e81.s3tc.ctex"]
 
 [params]
 

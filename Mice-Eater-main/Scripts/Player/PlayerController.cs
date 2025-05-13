@@ -32,16 +32,16 @@ public partial class PlayerController : CharacterBody3D
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
-    public override void _Ready()
-    {
+	public override void _Ready()
+	{
 		playerCamera = GetNode<CameraManager>("/root/" + GetTree().Root.GetChild(0).Name + "/Game Manager/Player Camera");
 		hideBox = GetChild<StaticBody3D>(0);
 		playerCollision = GetChild<CollisionShape3D>(1);
 		currentTarget = GlobalPosition;
-        speed = 0f;
-    }
+		speed = 0f;
+	}
 
-    void PlayerStateSynchronizer()
+	void PlayerStateSynchronizer()
 	{
 		// Manage walking / running / sprinting
 		if (Input.IsActionPressed("Walk"))
