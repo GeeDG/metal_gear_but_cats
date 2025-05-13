@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://c2s7r10ul6nc5"]
+[gd_scene load_steps=29 format=3 uid="uid://c2s7r10ul6nc5"]
 
 [ext_resource type="Texture2D" uid="uid://bwmf76ti5o1qh" path="res://Imports/key.png" id="1_02axg"]
 [ext_resource type="PackedScene" uid="uid://cjbi3o5v5u4nh" path="res://Prefabs/Test/test_cctv.tscn" id="1_ko630"]
+[ext_resource type="Script" path="res://Scripts/Camera/CameraManager.cs" id="1_qwvrb"]
 [ext_resource type="PackedScene" uid="uid://bpdwao6x67lmg" path="res://Prefabs/Test/test_guard.tscn" id="2_p17od"]
 [ext_resource type="Texture2D" uid="uid://uvo8ivkvuuys" path="res://Imports/elevator.png" id="3_ciooo"]
 [ext_resource type="PackedScene" uid="uid://btr8mpar2vywo" path="res://Prefabs/Test/test_player.tscn" id="3_sbpmo"]
@@ -9,7 +10,24 @@
 [ext_resource type="Material" uid="uid://6trg5eqcogin" path="res://Materials/Test/black_grid.tres" id="4_tewl6"]
 [ext_resource type="Texture2D" uid="uid://n8437jffxkun" path="res://Imports/kenney_prototype-textures/PNG/Dark/texture_01.png" id="5_us3sx"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kf6pw"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_xsn67"]
+sky_material = SubResource("ProceduralSkyMaterial_kf6pw")
+
+[sub_resource type="Environment" id="Environment_88aeb"]
+background_mode = 2
+sky = SubResource("Sky_xsn67")
+tonemap_mode = 2
+glow_enabled = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig4yj"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_6hw2f"]
+vertices = PackedVector3Array(23.25, 0.5, -64.5, 15.5, 0.5, -64.5, 15.5, 0.5, -59.75, 15.5, 0.5, -59.75, 15, 0.5, -59.5, 15.25, 0.5, -50.5, 23.25, 0.5, -50.5, 23.25, 0.5, -64.5, 15.5, 0.5, -59.75, 15.25, 0.5, -50.5, 25.5, 0.5, -48.25, 34.5, 0.5, -48.25, 34.5, 0.5, -50.25, 25.25, 0.5, -50.5, 23.25, 0.5, -64.5, 23.25, 0.5, -50.5, 25.25, 0.5, -50.5, 25.25, 0.5, -50.5, 34.5, 0.5, -50.25, 36.75, 0.5, -50.5, 36.75, 0.5, -64.5, 23.25, 0.5, -64.5, 36.75, 0.5, -50.5, 43.25, 0.5, -50.5, 43.25, 0.5, -64.5, 36.75, 0.5, -64.5, 45.25, 0.5, -50.5, 45.5, 0.5, -48.25, 54.5, 0.5, -48.25, 43.25, 0.5, -64.5, 43.25, 0.5, -50.5, 45.25, 0.5, -50.5, 45.25, 0.5, -50.5, 54.5, 0.5, -48.25, 54.5, 0.5, -64.5, 43.25, 0.5, -64.5, 5.5, 0.5, -48.25, 14.5, 0.5, -48.25, 14.5, 0.5, -50.25, 14.5, 0.5, -50.25, 15.25, 0.5, -50.5, 15, 0.5, -59.5, 5.5, 0.5, -59.5, 5.5, 0.5, -48.25, 5.5, 0.5, -41.75, 14.5, 0.5, -41.75, 14.5, 0.5, -48.25, 5.5, 0.5, -48.25, 25.5, 0.5, -41.75, 34.5, 0.5, -41.75, 34.5, 0.5, -48.25, 25.5, 0.5, -48.25, 45.5, 0.5, -41.75, 54.5, 0.5, -41.75, 54.5, 0.5, -48.25, 45.5, 0.5, -48.25, 5.5, 0.5, -28.25, 14.5, 0.5, -28.25, 14.5, 0.5, -30.25, 14.5, 0.5, -39.75, 14.5, 0.5, -41.75, 5.5, 0.5, -41.75, 14.5, 0.5, -30.25, 16.75, 0.5, -30.5, 16.75, 0.5, -39.5, 14.5, 0.5, -39.75, 5.5, 0.5, -41.75, 5.5, 0.5, -28.25, 14.5, 0.5, -30.25, 14.5, 0.5, -39.75, 25.25, 0.5, -39.5, 23.25, 0.5, -39.5, 23.25, 0.5, -30.5, 25.25, 0.5, -30.5, 34.5, 0.5, -30.25, 36.75, 0.5, -30.5, 36.75, 0.5, -39.5, 34.5, 0.5, -39.75, 25.25, 0.5, -39.5, 25.25, 0.5, -30.5, 25.5, 0.5, -28.25, 34.5, 0.5, -28.25, 34.5, 0.5, -30.25, 25.25, 0.5, -30.5, 34.5, 0.5, -39.75, 34.5, 0.5, -41.75, 25.5, 0.5, -41.75, 25.25, 0.5, -39.5, 45.25, 0.5, -39.5, 43.25, 0.5, -39.5, 43.25, 0.5, -30.5, 45.25, 0.5, -30.5, 45.25, 0.5, -39.5, 45.25, 0.5, -30.5, 45.5, 0.5, -28.25, 54.5, 0.5, -28.25, 54.5, 0.5, -41.75, 45.5, 0.5, -41.75, 16.75, 0.5, -30.5, 23.25, 0.5, -30.5, 23.25, 0.5, -39.5, 16.75, 0.5, -39.5, 36.75, 0.5, -30.5, 43.25, 0.5, -30.5, 43.25, 0.5, -39.5, 36.75, 0.5, -39.5, 5.5, 0.5, -21.75, 14.5, 0.5, -21.75, 14.5, 0.5, -28.25, 5.5, 0.5, -28.25, 25.5, 0.5, -21.75, 34.5, 0.5, -21.75, 34.5, 0.5, -28.25, 25.5, 0.5, -28.25, 45.5, 0.5, -21.75, 54.5, 0.5, -21.75, 54.5, 0.5, -28.25, 45.5, 0.5, -28.25, 5.5, 0.5, -8.25, 14.5, 0.5, -8.25, 14.5, 0.5, -10.25, 14.5, 0.5, -19.75, 14.5, 0.5, -21.75, 5.5, 0.5, -21.75, 14.5, 0.5, -10.25, 16.75, 0.5, -10.5, 16.75, 0.5, -19.5, 14.5, 0.5, -19.75, 5.5, 0.5, -21.75, 5.5, 0.5, -8.25, 14.5, 0.5, -10.25, 14.5, 0.5, -19.75, 25.25, 0.5, -19.5, 23.25, 0.5, -19.5, 23.25, 0.5, -10.5, 34.5, 0.5, -19.75, 34.5, 0.5, -21.75, 25.5, 0.5, -21.75, 25.25, 0.5, -19.5, 36.75, 0.5, -10.5, 36.75, 0.5, -19.5, 34.5, 0.5, -19.75, 25.25, 0.5, -19.5, 23.25, 0.5, -10.5, 43.25, 0.5, -19.5, 43.25, 0.5, -10.5, 45, 0.5, -10.5, 45.25, 0.5, -19.5, 45, 0.5, -10.5, 55, 0.5, -14.5, 54.5, 0.5, -14.75, 54.5, 0.5, -21.75, 45.5, 0.5, -21.75, 45.25, 0.5, -19.5, 45, 0.5, -10.5, 54.5, 0.5, -14.75, 16.75, 0.5, -10.5, 23.25, 0.5, -10.5, 23.25, 0.5, -19.5, 16.75, 0.5, -19.5, 36.75, 0.5, -10.5, 43.25, 0.5, -10.5, 43.25, 0.5, -19.5, 36.75, 0.5, -19.5, 56.75, 0.5, -5.5, 56.75, 0.5, -14.5, 55, 0.5, -14.5, 45.5, 0.5, -10.25, 45.5, 0.5, -5.5, 55, 0.5, -14.5, 45, 0.5, -10.5, 45.5, 0.5, -10.25, 56.75, 0.5, -5.5, 84.5, 0.5, -5.5, 84.5, 0.5, -14.5, 56.75, 0.5, -14.5, 16.75, 0.5, 4.5, 16.75, 0.5, -4.5, 14.5, 0.5, -4.75, 14.5, 0.5, -4.75, 14.5, 0.5, -8.25, 5.5, 0.5, -8.25, 14.5, 0.5, -4.75, 5.5, 0.5, -8.25, 5.5, 0.5, 4.5, 16.75, 0.5, 4.5, 16.75, 0.5, 4.5, 24.5, 0.5, 4.5, 24.5, 0.5, -4.5, 16.75, 0.5, -4.5)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(9, 8, 6), PackedInt32Array(6, 8, 7), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(16, 15, 14), PackedInt32Array(18, 17, 19), PackedInt32Array(19, 17, 20), PackedInt32Array(20, 17, 21), PackedInt32Array(25, 24, 22), PackedInt32Array(22, 24, 23), PackedInt32Array(28, 27, 26), PackedInt32Array(31, 30, 29), PackedInt32Array(35, 34, 32), PackedInt32Array(32, 34, 33), PackedInt32Array(38, 37, 36), PackedInt32Array(40, 39, 41), PackedInt32Array(41, 39, 42), PackedInt32Array(42, 39, 43), PackedInt32Array(47, 46, 44), PackedInt32Array(44, 46, 45), PackedInt32Array(51, 50, 48), PackedInt32Array(48, 50, 49), PackedInt32Array(55, 54, 52), PackedInt32Array(52, 54, 53), PackedInt32Array(58, 57, 56), PackedInt32Array(61, 60, 59), PackedInt32Array(63, 62, 64), PackedInt32Array(64, 62, 65), PackedInt32Array(69, 68, 66), PackedInt32Array(66, 68, 67), PackedInt32Array(73, 72, 70), PackedInt32Array(70, 72, 71), PackedInt32Array(75, 74, 76), PackedInt32Array(76, 74, 77), PackedInt32Array(77, 74, 79), PackedInt32Array(77, 79, 78), PackedInt32Array(81, 80, 82), PackedInt32Array(82, 80, 83), PackedInt32Array(85, 84, 86), PackedInt32Array(86, 84, 87), PackedInt32Array(91, 90, 88), PackedInt32Array(88, 90, 89), PackedInt32Array(97, 96, 92), PackedInt32Array(92, 96, 93), PackedInt32Array(93, 96, 94), PackedInt32Array(94, 96, 95), PackedInt32Array(101, 100, 98), PackedInt32Array(98, 100, 99), PackedInt32Array(105, 104, 102), PackedInt32Array(102, 104, 103), PackedInt32Array(109, 108, 106), PackedInt32Array(106, 108, 107), PackedInt32Array(113, 112, 110), PackedInt32Array(110, 112, 111), PackedInt32Array(117, 116, 114), PackedInt32Array(114, 116, 115), PackedInt32Array(120, 119, 118), PackedInt32Array(123, 122, 121), PackedInt32Array(125, 124, 126), PackedInt32Array(126, 124, 127), PackedInt32Array(131, 130, 128), PackedInt32Array(128, 130, 129), PackedInt32Array(134, 133, 132), PackedInt32Array(136, 135, 137), PackedInt32Array(137, 135, 138), PackedInt32Array(140, 139, 141), PackedInt32Array(141, 139, 142), PackedInt32Array(142, 139, 143), PackedInt32Array(145, 144, 146), PackedInt32Array(146, 144, 147), PackedInt32Array(150, 149, 148), PackedInt32Array(152, 151, 153), PackedInt32Array(153, 151, 155), PackedInt32Array(153, 155, 154), PackedInt32Array(159, 158, 156), PackedInt32Array(156, 158, 157), PackedInt32Array(163, 162, 160), PackedInt32Array(160, 162, 161), PackedInt32Array(165, 164, 166), PackedInt32Array(166, 164, 167), PackedInt32Array(167, 164, 168), PackedInt32Array(171, 170, 169), PackedInt32Array(175, 174, 172), PackedInt32Array(172, 174, 173), PackedInt32Array(178, 177, 176), PackedInt32Array(181, 180, 179), PackedInt32Array(185, 184, 182), PackedInt32Array(182, 184, 183), PackedInt32Array(189, 188, 186), PackedInt32Array(186, 188, 187)]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ec1uy"]
 albedo_texture = ExtResource("5_us3sx")
@@ -61,6 +79,23 @@ size = Vector2(30, 10)
 
 [node name="TestLevel" type="Node3D"]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_88aeb")
+
+[node name="Game Manager" type="Node" parent="."]
+
+[node name="Player Camera" type="Camera3D" parent="Game Manager"]
+script = ExtResource("1_qwvrb")
+
+[node name="Player" type="Node" parent="."]
+
+[node name="Player" parent="Player" instance=ExtResource("3_sbpmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8296, 0.784185, 3.10071)
+
 [node name="Environment" type="Node" parent="."]
 
 [node name="Door" type="Sprite3D" parent="Environment"]
@@ -77,11 +112,6 @@ texture = ExtResource("1_02axg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.9689, 4.85602, -64.9575)
 pixel_size = 0.02
 texture = ExtResource("3_ciooo")
-
-[node name="Player" type="Node" parent="."]
-
-[node name="Player" parent="Player" instance=ExtResource("3_sbpmo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8296, 0.784185, 3.10071)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.27143, 4.27129, -0.125722)
@@ -161,7 +191,8 @@ size = Vector3(12.6785, 7.56334, 2.81839)
 material = ExtResource("4_tewl6")
 
 [node name="Pozzanghera" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3613, -4.30762, -14.9927)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2996, -4.30762, -14.9639)
+visible = false
 size = Vector3(5.87768, 0.346122, 8.71286)
 material = SubResource("StandardMaterial3D_ig4yj")
 
@@ -196,7 +227,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.20708, -2.80786, -4.15384)
 size = Vector3(3.53908, 4.28065, 3.77327)
 material = ExtResource("4_tewl6")
 
-[node name="Flooring" type="Node" parent="."]
+[node name="Flooring" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_6hw2f")
 
 [node name="Floor5" type="MeshInstance3D" parent="Flooring"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.08165e-12, 2.08165e-12)
