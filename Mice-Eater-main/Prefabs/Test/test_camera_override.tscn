@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://buhl52gnklyhj"]
+
+[ext_resource type="Script" path="res://Scripts/Camera/CameraOverrideArea.cs" id="1_21yb2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gmayu"]
+size = Vector3(70, 5, 10)
+
+[node name="Camera Override" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 3, 30)
+collision_mask = 16
+script = ExtResource("1_21yb2")
+cameraPosition = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_gmayu")

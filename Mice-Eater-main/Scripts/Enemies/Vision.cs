@@ -14,7 +14,8 @@ public partial class Vision : Area3D
 	const float awarenessGrowth = 10f;
 	const float maxAwareness = 20f;
 	float awareness;
-	bool playerSeen;
+	public Vector3? playerPosition;
+	public bool playerSeen;
 
 	
 	public override void _Ready()
@@ -94,7 +95,7 @@ public partial class Vision : Area3D
 	{
 		bool playerInResults = false;
 		Array<Node3D> results;
-		Vector3 playerPosition = GlobalPosition + Vector3.Up * (maxAwareness + 10f);
+		Vector3 playerPos = GlobalPosition + Vector3.Up * (maxAwareness + 10f);
 		float deltaAwareness = awarenessGrowth * deltaTime;
 
 		// Set array depending on focus
@@ -109,7 +110,7 @@ public partial class Vision : Area3D
 			if (node.Name == "Player")
 			{
 				playerInResults = true;
-				playerPosition = node.GlobalPosition;
+				playerPos = node.GlobalPosition;
 				break;
 			}
 		}
@@ -131,15 +132,17 @@ public partial class Vision : Area3D
 		}
 
 		// Set playerSeen variable
-		if (awareness >= parent.GlobalPosition.DistanceTo(playerPosition))
+		if (awareness >= parent.GlobalPosition.DistanceTo(playerPos))
 		{
-			EmitSignal(SignalName.PlayerSeen, playerPosition);
-			GetTree().CallGroup("Guards", "ChasePlayer", playerPosition);
+			EmitSignal(SignalName.PlayerSeen, playerPos);
+			//GetTree().CallGroup("Guards", "ChasePlayer", playerPosition);
 			playerSeen = true;
+			playerPosition = playerPos;
 		}
 		else
 		{
 			playerSeen = false;
+			playerPosition = null;
 		}
 	}
 }

@@ -34,7 +34,10 @@ public partial class CCTV : Node3D
 	{
 		// Rotate camera
 		if (absentPlayerTime >= lookAtPatience)
+		{
+			GetTree().CallGroup("Guards", "GlobalChase", false);
 			RotationManager((float) delta);
+		}
 		else
 			absentPlayerTime += (float) delta;
 		// Update rotation
@@ -93,5 +96,8 @@ public partial class CCTV : Node3D
 		// Update rotation
 		rotationVector = new Vector3(Rotation.X, Rotation.Y, 0f);
 		Rotation = rotationVector;
+
+		// Signal GlobalChase
+		GetTree().CallGroup("Guards", "GlobalChase", true);
 	}
 }

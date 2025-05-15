@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://vpvmf4pyc0jy"]
+
+[ext_resource type="Script" path="res://Scripts/Camera/CameraManager.cs" id="1_uepaw"]
+[ext_resource type="Script" path="res://Scripts/General/PlayerHealthManager.cs" id="2_lrtv5"]
+
+[node name="Game Manager" type="Node"]
+
+[node name="Player Camera" type="Camera3D" parent="."]
+script = ExtResource("1_uepaw")
+
+[node name="Player Health" type="Node" parent="." node_paths=PackedStringArray("fearLevelTest", "fearDamageTest")]
+script = ExtResource("2_lrtv5")
+fearLevelTest = NodePath("Fear")
+fearDamageTest = NodePath("Fear2")
+damageThreshold = 10.0
+guardDPS = 0.1
+calmRate = 1.0
+
+[node name="Fear" type="Label" parent="Player Health"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Fear2" type="Label" parent="Player Health"]
+offset_top = 100.0
+offset_right = 40.0
+offset_bottom = 123.0

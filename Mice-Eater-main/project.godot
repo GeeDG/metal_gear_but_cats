@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Mice-Eater"
-run/main_scene="res://Scenes/test_level_1.tscn"
+run/main_scene="res://Scenes/test_level_2.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,9 +23,16 @@ project/assembly_name="Mice-Eater"
 
 folder_colors={
 "res://Imports/": "gray",
-"res://Imports/kenney_prototype-textures/": "gray",
 "res://Materials/": "orange",
 "res://Models/": "red",
+"res://Old stuff/": "gray",
+"res://Old stuff/Imports/": "gray",
+"res://Old stuff/Imports/kenney_prototype-textures/": "gray",
+"res://Old stuff/Materials/": "orange",
+"res://Old stuff/Models/": "red",
+"res://Old stuff/Prefabs/": "teal",
+"res://Old stuff/Scenes/": "green",
+"res://Old stuff/Scripts/": "purple",
 "res://Prefabs/": "teal",
 "res://Scenes/": "green",
 "res://Scripts/": "purple"
