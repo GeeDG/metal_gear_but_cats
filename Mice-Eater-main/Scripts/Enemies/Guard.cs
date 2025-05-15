@@ -41,7 +41,7 @@ public partial class Guard : CharacterBody3D
 	const float NEIGHBOR_DET_RADIUS = 2f;
 	const float NORMAL_RADIUS = 0.5f;
 	// Chase variables
-	[Export] public float persistenceTime = 2f;
+	public float persistenceTime = 2f; //TODO: obsolete
 	[Export] public float attackRange = 4f;
 	const float tooClose = 3f;
 	float timer;
