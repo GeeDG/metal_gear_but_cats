@@ -3,34 +3,37 @@ using System;
 
 public partial class PlayerController : CharacterBody3D
 {
-	// General reference variables
+	// General variables
 	CameraManager playerCamera;
 	CollisionShape3D playerCollision;
 	StaticBody3D hideBox;
+	float deltaTime;
 	// Camera control related variables
 	[Export] public Vector3 normalCameraOffset = new Vector3(0f, 10f, 6f);
 	Vector3 currentTarget;
-	const float deltaCameraAccel = 5f;
 	// Player movement variables
 	[Export] public float sprintSpeed = 8f;
 	[Export] public float runSpeed = 5.0f;
 	[Export] public float walkSpeed = 2.5f;
 	float speed;
 	Vector3 direction;
-	const float deltaAccel = 10f;
-	const float deltaRotAccel = 5f;
+	const float DELTA_ACCEL = 100000000000000000000f;
+	const float DELTA_ROT_ACCEL = 5f;
 	// Player state variables
 	public bool sprinting;
 	public bool running;
 	public bool walking;
 	public bool crouching;
 	public bool hiding;
+	public bool wallShuflling;
 	// Player model / collision variables
 	[Export] public float crouchScale = 0.65f;
 	const float deltaScaleAccel = 5f;
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+
+	//-----------------------------------------------------------------------------------------
 
     public override void _Ready()
     {
@@ -41,25 +44,50 @@ public partial class PlayerController : CharacterBody3D
         speed = 0f;
     }
 
+	public override void _PhysicsProcess(double delta)
+	{
+		deltaTime = (float) delta;
+
+		// Set player in correct states
+		PlayerStateSynchronizer();
+
+		// Manage movement
+		ManageMovement();
+	}
+
+	//-----------------------------------------------------------------------------------------
+
     void PlayerStateSynchronizer()
 	{
+		// Manage wall shuffle
+		wallShuflling = IsOnWall() && Input.IsActionPressed("Wall Shuffle");
+		GD.Print(wallShuflling + " " + GetWallNormal());
 		// Manage walking / running / sprinting
-		if (Input.IsActionPressed("Walk"))
+		if (!wallShuflling)
 		{
-			walking = true;
-			running = false;
-			sprinting = false;
-		}
-		else if (Input.IsActionPressed("Sprint"))
-		{
-			walking = false;
-			running = false;
-			sprinting = true;
+			if (Input.IsActionPressed("Walk"))
+			{
+				walking = true;
+				running = false;
+				sprinting = false;
+			}
+			else if (Input.IsActionPressed("Sprint"))
+			{
+				walking = false;
+				running = false;
+				sprinting = true;
+			}
+			else
+			{
+				walking = false;
+				running = true;
+				sprinting = false;
+			}
 		}
 		else
 		{
 			walking = false;
-			running = true;
+			running = false;
 			sprinting = false;
 		}
 
@@ -74,6 +102,7 @@ public partial class PlayerController : CharacterBody3D
 			hiding = false;
 			crouching = false;
 		}
+		SetScale();
 
 		// Manage hiding
 		if (hiding && !GetChildren().Contains(hideBox))
@@ -86,21 +115,17 @@ public partial class PlayerController : CharacterBody3D
 		}
 	}
 
-	public override void _PhysicsProcess(double delta)
+	void ManageMovement()
 	{
 		Vector3 velocity = Velocity;
 
-		// Set player in correct states
-		PlayerStateSynchronizer();
-		SetScale((float) delta);
-
 		// Add the gravity.
 		if (!IsOnFloor())
-			velocity.Y -= gravity * (float)delta;
+			velocity.Y -= gravity * deltaTime;
 
 		// Get the input direction and handle the movement/deceleration.
-		SetDirection((float) delta);
-		SetSpeed((float) delta);
+		SetDirection();
+		SetSpeed();
 		//TODO: Model rotation
 		if (direction != Vector3.Zero)
 		{
@@ -118,10 +143,12 @@ public partial class PlayerController : CharacterBody3D
 
 		// Perch camera in correct position
 		// TODO: Add smoothing to camera
-		SetCamera((float) delta);
+		SetCamera();
 	}
 
-	void SetSpeed(float deltaTime)
+	//-----------------------------------------------------------------------------------------
+
+	void SetSpeed()
 	{
 		float difference;
 		float value;
@@ -147,25 +174,30 @@ public partial class PlayerController : CharacterBody3D
 			}
 			else
 			{
-				difference = 0f;
+				difference = speed - 0f;
 			}
 		}
 
-		value = Mathf.Clamp(Mathf.Abs(difference), 0f, deltaAccel * deltaTime);
+		value = Mathf.Clamp(Mathf.Abs(difference), 0f, DELTA_ACCEL * deltaTime);
 		sign = Mathf.Sign(difference);
 
 		speed -= sign * value;
 	}
 
-	void SetDirection(float deltaTime)
+	void SetDirection()
 	{
 		Vector2 inputDir2D = Input.GetVector("Left", "Right", "Up", "Down").Rotated(-playerCamera.Rotation.Y);
 		Vector3 inputDir3D = new Vector3(inputDir2D.X, 0, inputDir2D.Y);
 		
-		direction = direction.MoveToward(inputDir3D, deltaRotAccel * deltaTime);
+		direction = direction.MoveToward(inputDir3D, DELTA_ROT_ACCEL * deltaTime);
 	}
 
-	void SetScale(float deltaTime)
+	void SetModelRotation()
+	{
+		
+	}
+
+	void SetScale()
 	{
 		//TODO: use playerCollision.Scale when model is available
 		if (crouching)
@@ -180,7 +212,7 @@ public partial class PlayerController : CharacterBody3D
 		}
 	}
 
-	void SetCamera(float deltaTime)
+	void SetCamera()
 	{
 		//? Check gamefeel and see if camera smoothing is essential
 		// float distance = (GlobalPosition - currentTarget).Length();

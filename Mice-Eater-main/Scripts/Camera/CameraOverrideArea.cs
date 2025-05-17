@@ -5,6 +5,7 @@ public partial class CameraOverrideArea : Area3D
 {
 	[Export] public Vector3 cameraPosition;
 	[Export] public bool fixedPosition;
+	[Export] public bool overridePlayerInput;
 	[Signal] public delegate void NewCameraAngleEventHandler(Vector3 cameraPosition, Vector3 playerPosition, bool fixedPosition);
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

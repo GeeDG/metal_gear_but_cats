@@ -29,7 +29,14 @@ shape = SubResource("BoxShape3D_2f4cj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_nkv43")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Meshes" type="Node" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
 material_override = ExtResource("2_7dnap")
 mesh = SubResource("CylinderMesh_bq77h")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16185, -0.27081)
+size = Vector3(0.5, 1, 1)

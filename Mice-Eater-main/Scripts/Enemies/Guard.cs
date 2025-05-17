@@ -429,7 +429,6 @@ public partial class Guard : CharacterBody3D
 
 	public void GlobalChase(bool value)
 	{
-		GD.Print(value);
 		globalChase = value;
 	}
 
