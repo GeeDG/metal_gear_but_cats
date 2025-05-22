@@ -28,7 +28,7 @@ public partial class GameManager : Node
 		{
 			GD.Print("Lose");
 			//TODO: lose
-			GetTree().Paused = true;
+			GetTree().ChangeSceneToFile("res://Scenes/test_menu.tscn");
 		}
 	}
 
@@ -38,7 +38,7 @@ public partial class GameManager : Node
 		{
 			GD.Print("Win");
 			//TODO: win
-			GetTree().Paused = true;
+			GetTree().ChangeSceneToFile("res://Scenes/test_menu.tscn");
 		}
 	}
 

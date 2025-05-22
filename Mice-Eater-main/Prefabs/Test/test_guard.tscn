@@ -33,7 +33,6 @@ path_max_distance = 1.01
 avoidance_enabled = true
 radius = 1.0
 max_neighbors = 3
-debug_enabled = true
 
 [node name="Vision Cone" type="Area3D" parent="."]
 transform = Transform3D(5, -7.10543e-15, -1.17764e-21, -1.2599e-22, -2.18557e-07, -5, 0, 5, -2.18557e-07, 2.0794e-12, 0, -4.823)

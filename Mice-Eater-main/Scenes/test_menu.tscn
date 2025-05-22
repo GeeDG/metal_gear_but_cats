@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbdlv800gpuf"]
+
+[ext_resource type="Script" path="res://Scripts/Menu/Start.cs" id="1_ih6v4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Start" type="Button" parent="."]
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 150.0
+offset_bottom = 150.0
+text = "Start
+"
+script = ExtResource("1_ih6v4")
+
+[connection signal="pressed" from="Start" to="Start" method="StartGame"]
