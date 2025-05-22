@@ -19,6 +19,8 @@ public partial class PlayerController : CharacterBody3D
 	Vector3 direction;
 	const float DELTA_ACCEL = 100000000000000000000f;
 	const float DELTA_ROT_ACCEL = 5f;
+	// Player rotation variables
+	const float DIR_TOLERANCE = 0.1f;
 	// Player state variables
 	public bool sprinting;
 	public bool running;
@@ -61,7 +63,6 @@ public partial class PlayerController : CharacterBody3D
 	{
 		// Manage wall shuffle
 		wallShuflling = IsOnWall() && Input.IsActionPressed("Wall Shuffle");
-		GD.Print(wallShuflling + " " + GetWallNormal());
 		// Manage walking / running / sprinting
 		if (!wallShuflling)
 		{
@@ -126,7 +127,8 @@ public partial class PlayerController : CharacterBody3D
 		// Get the input direction and handle the movement/deceleration.
 		SetDirection();
 		SetSpeed();
-		//TODO: Model rotation
+		SetModelRotation();
+
 		if (direction != Vector3.Zero)
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, direction.X * speed, speed);
@@ -194,7 +196,8 @@ public partial class PlayerController : CharacterBody3D
 
 	void SetModelRotation()
 	{
-		
+		if (direction.Length() >= DIR_TOLERANCE)
+			LookAt(GlobalPosition + direction);
 	}
 
 	void SetScale()

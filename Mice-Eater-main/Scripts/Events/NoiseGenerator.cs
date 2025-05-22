@@ -16,7 +16,7 @@ public partial class NoiseGenerator : Area3D
 	{
 		if (IsTriggered())
 		{
-			GetTree().CallGroup("Guards", "AddSuspicionPoint", GlobalPosition);
+			GetTree().CallGroup("Guards", "AddSuspicionPoint", GetOverlappingBodies()[0].GlobalPosition);
 		}
 	}
 

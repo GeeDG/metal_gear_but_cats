@@ -672,7 +672,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.27258)
 
 [node name="Player" parent="Player" instance=ExtResource("2_f78hn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2558, 1, -1.28444)
-collision_layer = 19
 normalCameraOffset = Vector3(2.08165e-12, 10, 2)
 
 [node name="Patrol Points" type="Node" parent="."]

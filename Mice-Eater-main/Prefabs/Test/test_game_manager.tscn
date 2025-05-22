@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://vpvmf4pyc0jy"]
+[gd_scene load_steps=4 format=3 uid="uid://vpvmf4pyc0jy"]
 
+[ext_resource type="Script" path="res://Scripts/General/GameManager.cs" id="1_bosqc"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraManager.cs" id="1_uepaw"]
 [ext_resource type="Script" path="res://Scripts/General/PlayerHealthManager.cs" id="2_lrtv5"]
 
 [node name="Game Manager" type="Node"]
+process_mode = 3
+script = ExtResource("1_bosqc")
+loseThreshold = 5
 
 [node name="Player Camera" type="Camera3D" parent="."]
 script = ExtResource("1_uepaw")

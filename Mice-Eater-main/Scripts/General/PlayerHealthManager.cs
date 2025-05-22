@@ -10,7 +10,7 @@ public partial class PlayerHealthManager : Node
 	[Export] public float guardDPS;
 	[Export] public float calmRate;
 	float currentDamage;
-	int fearLevel;
+	public int fearLevel;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

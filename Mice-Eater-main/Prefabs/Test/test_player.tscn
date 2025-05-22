@@ -14,7 +14,7 @@ height = 1.5
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
-collision_layer = 3
+collision_layer = 19
 up_direction = Vector3(1.04082e-12, 1, 1.04082e-12)
 script = ExtResource("1_i1xv5")
 normalCameraOffset = Vector3(2.08165e-12, 10, 6)
@@ -29,14 +29,14 @@ shape = SubResource("BoxShape3D_2f4cj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_nkv43")
 
-[node name="Meshes" type="Node" parent="."]
+[node name="Meshes" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Meshes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 material_override = ExtResource("2_7dnap")
 mesh = SubResource("CylinderMesh_bq77h")
 skeleton = NodePath("../../..")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Meshes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16185, -0.27081)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.203464, -0.271)
 size = Vector3(0.5, 1, 1)
