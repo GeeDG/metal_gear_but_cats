@@ -37,14 +37,14 @@ public partial class PlayerController : CharacterBody3D
 
 	//-----------------------------------------------------------------------------------------
 
-    public override void _Ready()
-    {
+	public override void _Ready()
+	{
 		playerCamera = GetNode<CameraManager>("/root/" + GetTree().Root.GetChild(0).Name + "/Game Manager/Player Camera");
 		hideBox = GetChild<StaticBody3D>(0);
 		playerCollision = GetChild<CollisionShape3D>(1);
 		currentTarget = GlobalPosition;
-        speed = 0f;
-    }
+		speed = 0f;
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -59,7 +59,7 @@ public partial class PlayerController : CharacterBody3D
 
 	//-----------------------------------------------------------------------------------------
 
-    void PlayerStateSynchronizer()
+	void PlayerStateSynchronizer()
 	{
 		// Manage wall shuffle
 		wallShuflling = IsOnWall() && Input.IsActionPressed("Wall Shuffle");
