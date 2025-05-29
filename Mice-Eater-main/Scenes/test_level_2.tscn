@@ -1,11 +1,14 @@
-[gd_scene load_steps=41 format=3 uid="uid://bygt3bhmrqrd8"]
+[gd_scene load_steps=45 format=3 uid="uid://bygt3bhmrqrd8"]
 
 [ext_resource type="Texture2D" uid="uid://b5ia55v1ed2ne" path="res://Imports/door.png" id="2_fkwrn"]
 [ext_resource type="PackedScene" uid="uid://btr8mpar2vywo" path="res://Prefabs/Test/test_player.tscn" id="2_s2fvp"]
 [ext_resource type="Texture2D" uid="uid://bwmf76ti5o1qh" path="res://Imports/key.png" id="3_h5hjc"]
+[ext_resource type="Texture2D" uid="uid://p1u8sa1e6rgd" path="res://Imports/key_indicator.png" id="4_7ess6"]
 [ext_resource type="Texture2D" uid="uid://uvo8ivkvuuys" path="res://Imports/elevator.png" id="4_kvra5"]
 [ext_resource type="PackedScene" uid="uid://vpvmf4pyc0jy" path="res://Prefabs/Test/test_game_manager.tscn" id="5_75raa"]
 [ext_resource type="Texture2D" uid="uid://n8437jffxkun" path="res://Imports/kenney_prototype-textures/PNG/Dark/texture_01.png" id="5_ahh2h"]
+[ext_resource type="Texture2D" uid="uid://5quag68mqotf" path="res://Imports/command_indications.jpeg" id="5_beag1"]
+[ext_resource type="Texture2D" uid="uid://cegrax1unkiu2" path="res://Imports/findexit.png" id="6_87j76"]
 [ext_resource type="PackedScene" uid="uid://cjbi3o5v5u4nh" path="res://Prefabs/Test/test_cctv.tscn" id="7_a2rfq"]
 [ext_resource type="PackedScene" uid="uid://bpdwao6x67lmg" path="res://Prefabs/Test/test_guard.tscn" id="8_7adj8"]
 [ext_resource type="Script" path="res://Scripts/Events/Key.cs" id="8_qkgxj"]
@@ -87,10 +90,13 @@ glow_enabled = true
 size = Vector3(10, 5, 12)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ir23"]
-size = Vector3(50, 5, 12)
+size = Vector3(45.6497, 5, 12)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgou1"]
 size = Vector3(50, 5, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oo51f"]
+size = Vector3(9.35071, 5, 12)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xcrlx"]
 size = Vector3(4, 3, 2)
@@ -339,6 +345,21 @@ size = Vector3(2.95096, 4.28065, 2.97306)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.20708, -2.80786, -4.15384)
 size = Vector3(3.53908, 4.28065, 3.77327)
 
+[node name="Key Indications" type="Sprite3D" parent="Environment"]
+transform = Transform3D(-0.999958, 0, -0.00921514, 0, 1, 0, 0.00921514, 0, -0.999958, 49.2955, 2.81513, -5.3726)
+pixel_size = 0.005
+texture = ExtResource("4_7ess6")
+
+[node name="commands" type="Sprite3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8287, 4.45562, -5.23001)
+pixel_size = 0.005
+texture = ExtResource("5_beag1")
+
+[node name="findtheexit" type="Sprite3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.443, 4.44055, -5.2475)
+pixel_size = 0.004
+texture = ExtResource("6_87j76")
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Guard 2" parent="Enemies" node_paths=PackedStringArray("patrolPoints") instance=ExtResource("8_7adj8")]
@@ -438,10 +459,10 @@ shape = SubResource("BoxShape3D_x1c03")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.7644, 3, -10.1535)
 collision_mask = 16
 script = ExtResource("9_6mxs5")
-cameraPosition = Vector3(2.08165e-12, 20, 2)
+cameraPosition = Vector3(2.08165e-12, 15, 2)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera Overrides/Camera Override3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.30788, 0, -0.410923)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7051, 0, -0.410923)
 shape = SubResource("BoxShape3D_6ir23")
 
 [node name="Camera Override4" type="Area3D" parent="Camera Overrides"]
@@ -453,6 +474,21 @@ cameraPosition = Vector3(2.08165e-12, 20, 2)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera Overrides/Camera Override4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.30788, 0, -0.410923)
 shape = SubResource("BoxShape3D_pgou1")
+
+[node name="Camera Override5" type="Area3D" parent="Camera Overrides"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.7644, 3, -10.1535)
+collision_mask = 16
+script = ExtResource("9_6mxs5")
+cameraPosition = Vector3(40.3917, 3.86193, -7.64174)
+fixedPosition = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera Overrides/Camera Override5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8383, 0, -0.410923)
+shape = SubResource("BoxShape3D_oo51f")
+
+[node name="DELETE THIS" type="Camera3D" parent="Camera Overrides"]
+transform = Transform3D(0.331679, 0.24661, -0.910589, 0.0231326, 0.962812, 0.269179, 0.943109, -0.110345, 0.31364, 56.957, 6.91614, -7.45972)
+fov = 76.3153
 
 [node name="Events" type="Node" parent="."]
 
