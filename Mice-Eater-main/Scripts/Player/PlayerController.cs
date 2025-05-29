@@ -63,6 +63,7 @@ public partial class PlayerController : CharacterBody3D
 	{
 		// Manage wall shuffle
 		wallShuflling = IsOnWall() && Input.IsActionPressed("Wall Shuffle");
+		wallShuflling = false;
 		// Manage walking / running / sprinting
 		if (!wallShuflling)
 		{
@@ -93,17 +94,17 @@ public partial class PlayerController : CharacterBody3D
 		}
 
 		// Manage crouching / sliding
-		if (Input.IsActionPressed("Crouch"))
-		{
-			hiding = true;
-			crouching = true;
-		}
-		else
-		{
-			hiding = false;
-			crouching = false;
-		}
-		SetScale();
+		// if (Input.IsActionPressed("Crouch"))
+		// {
+		// 	hiding = true;
+		// 	crouching = true;
+		// }
+		// else
+		// {
+		// 	hiding = false;
+		// 	crouching = false;
+		// }
+		// SetScale();
 
 		// Manage hiding
 		if (hiding && !GetChildren().Contains(hideBox))
