@@ -50,7 +50,6 @@ public partial class GameManager : Node
 	{
 		if (playerHealthManager.fearLevel >= loseThreshold)
 		{
-			GD.Print("Lose");
 			GetTree().Paused = true;
 			loseScreen.Visible = true;
 		}
@@ -60,7 +59,6 @@ public partial class GameManager : Node
 	{
 		if (playerHasKey)
 		{
-			GD.Print("Win");
 			GetTree().Paused = true;
 			winScreen.Visible = true;
 		}

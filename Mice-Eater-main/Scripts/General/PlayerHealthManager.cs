@@ -23,7 +23,7 @@ public partial class PlayerHealthManager : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		fearLevelTest.Text = "Fear: " + fearLevel;
+		fearLevelTest.Text = "Fear: " + fearLevel + "/5";
 		fearDamageTest.Text = "Damage: " + currentDamage;
 	}
 

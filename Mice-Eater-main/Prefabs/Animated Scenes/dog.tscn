@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdqk2qn47ept7"]
+
+[ext_resource type="PackedScene" uid="uid://2wumirvj8yjq" path="res://Models/Dog Animated/doggo_anim.glb" id="1_2vewp"]
+
+[node name="Dog" instance=ExtResource("1_2vewp")]
