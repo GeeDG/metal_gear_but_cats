@@ -19,6 +19,8 @@ public partial class GameManager : Node
 		playerHealthManager = GetChild<PlayerHealthManager>(1);
 		playerHasKey = false;
 
+		playerHealthManager.Visible = true;
+
 		loseScreen = GetChild<Node2D>(2);
 		loseScreen.Visible = false;
 		winScreen = GetChild<Node2D>(3);
@@ -50,6 +52,7 @@ public partial class GameManager : Node
 	{
 		if (playerHealthManager.fearLevel >= loseThreshold)
 		{
+			playerHealthManager.Visible = false;
 			GetTree().Paused = true;
 			loseScreen.Visible = true;
 		}
@@ -59,6 +62,7 @@ public partial class GameManager : Node
 	{
 		if (playerHasKey)
 		{
+			playerHealthManager.Visible = false;
 			GetTree().Paused = true;
 			winScreen.Visible = true;
 		}
