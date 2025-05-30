@@ -113,9 +113,6 @@ size = Vector3(3.31416, 5.25391, 3.79346)
 [sub_resource type="BoxShape3D" id="BoxShape3D_xewmt"]
 size = Vector3(3.31416, 5.25391, 2.01147)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_rhtne"]
-size = Vector3(5.44028, 5.25391, 4.31921)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_xcrlx"]
 size = Vector3(4, 3, 2)
 
@@ -586,10 +583,6 @@ fixedPosition = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05955, 0.126953, 3.4598)
 shape = SubResource("BoxShape3D_2n3nv")
 
-[node name="DELETE THIS" type="Camera3D" parent="Camera Overrides"]
-transform = Transform3D(-0.986689, -0.0500322, 0.154733, 0.00868694, 0.933921, 0.357374, -0.162388, 0.353961, -0.921055, 45.4543, 9.38248, -62.4162)
-fov = 76.3153
-
 [node name="Camera Override7" type="Area3D" parent="Camera Overrides"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82999, 2.4515, -45.2455)
 collision_mask = 16
@@ -600,17 +593,6 @@ fixedPosition = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera Overrides/Camera Override7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05955, 0.126953, 2.56881)
 shape = SubResource("BoxShape3D_xewmt")
-
-[node name="Camera Override8" type="Area3D" parent="Camera Overrides"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82999, 2.4515, -45.2455)
-collision_mask = 16
-script = ExtResource("9_6mxs5")
-cameraPosition = Vector3(51.0682, 9.38248, -60.1392)
-fixedPosition = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera Overrides/Camera Override8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5321, 0.126953, -6.8659)
-shape = SubResource("BoxShape3D_rhtne")
 
 [node name="Events" type="Node" parent="."]
 
