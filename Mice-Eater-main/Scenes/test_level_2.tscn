@@ -1,10 +1,10 @@
-[gd_scene load_steps=46 format=3 uid="uid://bygt3bhmrqrd8"]
+[gd_scene load_steps=48 format=3 uid="uid://bygt3bhmrqrd8"]
 
 [ext_resource type="Texture2D" uid="uid://b5ia55v1ed2ne" path="res://Imports/door.png" id="2_fkwrn"]
 [ext_resource type="PackedScene" uid="uid://btr8mpar2vywo" path="res://Prefabs/Test/test_player.tscn" id="2_s2fvp"]
 [ext_resource type="Texture2D" uid="uid://bwmf76ti5o1qh" path="res://Imports/key.png" id="3_h5hjc"]
-[ext_resource type="Texture2D" uid="uid://p1u8sa1e6rgd" path="res://Imports/key_indicator.png" id="4_7ess6"]
 [ext_resource type="Texture2D" uid="uid://uvo8ivkvuuys" path="res://Imports/elevator.png" id="4_kvra5"]
+[ext_resource type="Texture2D" uid="uid://tn1xvndsjbb1" path="res://Imports/key_indicator_right.png" id="4_y8weu"]
 [ext_resource type="PackedScene" uid="uid://vpvmf4pyc0jy" path="res://Prefabs/Test/test_game_manager.tscn" id="5_75raa"]
 [ext_resource type="Texture2D" uid="uid://n8437jffxkun" path="res://Imports/kenney_prototype-textures/PNG/Dark/texture_01.png" id="5_ahh2h"]
 [ext_resource type="Texture2D" uid="uid://5quag68mqotf" path="res://Imports/command_indications.jpeg" id="5_beag1"]
@@ -104,11 +104,17 @@ size = Vector3(45.6497, 5, 12)
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgou1"]
 size = Vector3(50, 5, 15)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_oo51f"]
-size = Vector3(9.35071, 5, 12)
+[sub_resource type="BoxShape3D" id="BoxShape3D_v8q63"]
+size = Vector3(9.35071, 5, 8.54834)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2n3nv"]
 size = Vector3(3.31416, 5.25391, 3.79346)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xewmt"]
+size = Vector3(3.31416, 5.25391, 2.01147)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rhtne"]
+size = Vector3(5.44028, 5.25391, 4.31921)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xcrlx"]
 size = Vector3(4, 3, 2)
@@ -428,9 +434,10 @@ transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e
 shape = SubResource("BoxShape3D_5mg0t")
 
 [node name="Key Indications" type="Sprite3D" parent="Environment"]
-transform = Transform3D(-0.999958, 0, -0.00921514, 0, 1, 0, 0.00921514, 0, -0.999958, 49.2955, 2.81513, -5.3726)
+transform = Transform3D(-0.999958, 0, -0.00921514, 0, 1, 0, 0.00921514, 0, -0.999958, 51.5653, 2.81513, -12.6359)
+flip_h = true
 pixel_size = 0.005
-texture = ExtResource("4_7ess6")
+texture = ExtResource("4_y8weu")
 
 [node name="commands" type="Sprite3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8287, 4.45562, -5.23001)
@@ -561,12 +568,12 @@ shape = SubResource("BoxShape3D_pgou1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.7644, 3, -10.1535)
 collision_mask = 16
 script = ExtResource("9_6mxs5")
-cameraPosition = Vector3(40.3917, 3.86193, -7.64174)
+cameraPosition = Vector3(42.1558, 3.86193, -5.2219)
 fixedPosition = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera Overrides/Camera Override5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8383, 0, -0.410923)
-shape = SubResource("BoxShape3D_oo51f")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8383, 0, 1.31491)
+shape = SubResource("BoxShape3D_v8q63")
 
 [node name="Camera Override6" type="Area3D" parent="Camera Overrides"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.7644, 3, -10.1535)
@@ -580,8 +587,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05955, 0.126953, 3.4598)
 shape = SubResource("BoxShape3D_2n3nv")
 
 [node name="DELETE THIS" type="Camera3D" parent="Camera Overrides"]
-transform = Transform3D(0.331679, 0.24661, -0.910589, 0.0231326, 0.962812, 0.269179, 0.943109, -0.110345, 0.31364, 56.957, 6.91614, -7.45972)
+transform = Transform3D(-0.986689, -0.0500322, 0.154733, 0.00868694, 0.933921, 0.357374, -0.162388, 0.353961, -0.921055, 45.4543, 9.38248, -62.4162)
 fov = 76.3153
+
+[node name="Camera Override7" type="Area3D" parent="Camera Overrides"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82999, 2.4515, -45.2455)
+collision_mask = 16
+script = ExtResource("9_6mxs5")
+cameraPosition = Vector3(49.4931, 9.38248, -58.8204)
+fixedPosition = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera Overrides/Camera Override7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05955, 0.126953, 2.56881)
+shape = SubResource("BoxShape3D_xewmt")
+
+[node name="Camera Override8" type="Area3D" parent="Camera Overrides"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82999, 2.4515, -45.2455)
+collision_mask = 16
+script = ExtResource("9_6mxs5")
+cameraPosition = Vector3(51.0682, 9.38248, -60.1392)
+fixedPosition = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera Overrides/Camera Override8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5321, 0.126953, -6.8659)
+shape = SubResource("BoxShape3D_rhtne")
 
 [node name="Events" type="Node" parent="."]
 
