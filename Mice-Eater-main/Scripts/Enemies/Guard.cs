@@ -20,12 +20,15 @@ public partial class Guard : CharacterBody3D
 	Vision vision;
 	Area3D neighborDetection;
 	Node3D player;
+	AnimationTree animationTree;
 
 	float time;
 	const float delayTime = 0.5f;
 	float delay;
 	// State variables
 	int state;
+	// Animation variables
+	const float MOVING_THRESHOLD = 0.1f;
 	// Movement variables
 	const float DELTA_ACCEL = 3.5f;
 	const float DELTA_ROT_SPEED = 5f;
@@ -80,6 +83,8 @@ public partial class Guard : CharacterBody3D
 		neighborDetection = GetChild<Area3D>(2);
 		// Set up player reference
 		player = GetNode<Node3D>("/root/" + GetTree().Root.GetChild(0).Name + "/Player/Player");
+		// Set up animation tree
+		animationTree = GetChild(6).GetChild<AnimationTree>(2);
 
 		// State
 		SwitchToPatrol();
@@ -120,6 +125,7 @@ public partial class Guard : CharacterBody3D
 			// IsTargetReached();
 			NeighborAwareness();
 			GuardStateMachine();
+			ManageAnimation();
 		}
 		else
 		{
@@ -176,6 +182,25 @@ public partial class Guard : CharacterBody3D
 				GD.PushError(Name + ": STATE ERROR!!!");
 				break;
 		}
+	}
+
+	void ManageAnimation()
+	{
+		bool idle = true;
+		bool running;
+
+		// Check if guard's moving
+		if (Velocity.Length() >= MOVING_THRESHOLD)
+			idle = false;
+		
+		// Check if guard's running
+		running = (state == States.SUSPICIOUS) || (state == States.CHASE) || (state == States.GLOBAL_CHASE);
+		
+		// Assign values
+		animationTree.Set("parameters/conditions/idle", idle);
+		animationTree.Set("parameters/conditions/moving", !idle);
+		animationTree.Set("parameters/conditions/running", running);
+		animationTree.Set("parameters/conditions/running", !running);
 	}
 
 	//------------------------------------------------------------------------

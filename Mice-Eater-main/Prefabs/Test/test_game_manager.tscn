@@ -12,7 +12,7 @@ loseThreshold = 5
 [node name="Player Camera" type="Camera3D" parent="."]
 script = ExtResource("1_uepaw")
 
-[node name="Player Health" type="Node" parent="." node_paths=PackedStringArray("fearLevelTest", "fearDamageTest")]
+[node name="Player Health" type="Node2D" parent="." node_paths=PackedStringArray("fearLevelTest", "fearDamageTest")]
 script = ExtResource("2_lrtv5")
 fearLevelTest = NodePath("Fear")
 fearDamageTest = NodePath("Fear2")
@@ -28,3 +28,70 @@ offset_bottom = 23.0
 offset_top = 100.0
 offset_right = 40.0
 offset_bottom = 123.0
+
+[node name="Lose Screen" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Lose Screen"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 500.0
+offset_top = 200.0
+offset_right = 700.0
+offset_bottom = 250.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+text = "You lose :("
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Lose Screen"]
+offset_left = 500.0
+offset_top = 250.0
+offset_right = 700.0
+offset_bottom = 281.0
+focus_mode = 0
+text = "Restart"
+
+[node name="Button2" type="Button" parent="Lose Screen"]
+offset_left = 500.0
+offset_top = 300.0
+offset_right = 700.0
+offset_bottom = 331.0
+focus_mode = 0
+text = "Exit"
+
+[node name="Win Screen" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Win Screen"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 500.0
+offset_top = 200.0
+offset_right = 700.0
+offset_bottom = 250.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+text = "You win :)"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Win Screen"]
+offset_left = 500.0
+offset_top = 250.0
+offset_right = 700.0
+offset_bottom = 281.0
+focus_mode = 0
+text = "Restart"
+
+[node name="Button2" type="Button" parent="Win Screen"]
+offset_left = 500.0
+offset_top = 300.0
+offset_right = 700.0
+offset_bottom = 331.0
+focus_mode = 0
+text = "Exit"
+
+[connection signal="pressed" from="Lose Screen/Button" to="." method="SoftReset"]
+[connection signal="pressed" from="Lose Screen/Button2" to="." method="HardReset"]
+[connection signal="pressed" from="Win Screen/Button" to="." method="SoftReset"]
+[connection signal="pressed" from="Win Screen/Button2" to="." method="HardReset"]

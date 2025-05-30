@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu2kv6rtoh80l"]
+
+[ext_resource type="PackedScene" uid="uid://bu825xj378ap4" path="res://Models/Cat Animated/NewEater.glb" id="1_b6dpi"]
+
+[node name="Cat" instance=ExtResource("1_b6dpi")]

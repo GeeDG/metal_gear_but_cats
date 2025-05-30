@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Menu/Start.cs" id="1_ih6v4"]
 
 [node name="Node2D" type="Node2D"]
+process_mode = 3
 
 [node name="Start" type="Button" parent="."]
 offset_left = 100.0

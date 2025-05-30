@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class PlayerHealthManager : Node
+public partial class PlayerHealthManager : Node2D
 {
 	[Export] Label fearLevelTest;
 	[Export] Label fearDamageTest;
@@ -15,6 +15,7 @@ public partial class PlayerHealthManager : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		
 		currentDamage = 0f;
 		fearLevel = 0;
 	}
@@ -22,7 +23,7 @@ public partial class PlayerHealthManager : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		fearLevelTest.Text = "Fear: " + fearLevel;
+		fearLevelTest.Text = "Fear: " + fearLevel + "/5";
 		fearDamageTest.Text = "Damage: " + currentDamage;
 	}
 
@@ -30,6 +31,8 @@ public partial class PlayerHealthManager : Node
     {
         if (currentDamage > 0f)
 			currentDamage -= calmRate * (float) delta;
+		if (currentDamage < 0f)
+			currentDamage = 0f;
     }
 
     public void AddDamage()
@@ -41,5 +44,10 @@ public partial class PlayerHealthManager : Node
 			currentDamage = 0f;
 			fearLevel++;
 		}
+	}
+
+	public void ShowFear(bool show)
+	{
+		Visible = show;
 	}
 }

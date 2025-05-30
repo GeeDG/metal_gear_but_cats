@@ -7,7 +7,10 @@ public partial class PlayerController : CharacterBody3D
 	CameraManager playerCamera;
 	CollisionShape3D playerCollision;
 	StaticBody3D hideBox;
+	AnimationTree animationTree;
 	float deltaTime;
+	// Animation variables
+	const float MOVING_THRESHOLD = 0.1f;
 	// Camera control related variables
 	[Export] public Vector3 normalCameraOffset = new Vector3(0f, 10f, 6f);
 	Vector3 currentTarget;
@@ -42,6 +45,7 @@ public partial class PlayerController : CharacterBody3D
 		playerCamera = GetNode<CameraManager>("/root/" + GetTree().Root.GetChild(0).Name + "/Game Manager/Player Camera");
 		hideBox = GetChild<StaticBody3D>(0);
 		playerCollision = GetChild<CollisionShape3D>(1);
+		animationTree = GetChild(3).GetChild<AnimationTree>(2);
 		currentTarget = GlobalPosition;
 		speed = 0f;
 	}
@@ -53,6 +57,9 @@ public partial class PlayerController : CharacterBody3D
 		// Set player in correct states
 		PlayerStateSynchronizer();
 
+		// Manage animation
+		ManageAnimation();
+
 		// Manage movement
 		ManageMovement();
 	}
@@ -63,16 +70,17 @@ public partial class PlayerController : CharacterBody3D
 	{
 		// Manage wall shuffle
 		wallShuflling = IsOnWall() && Input.IsActionPressed("Wall Shuffle");
+		wallShuflling = false;
 		// Manage walking / running / sprinting
 		if (!wallShuflling)
 		{
-			if (Input.IsActionPressed("Walk"))
-			{
-				walking = true;
-				running = false;
-				sprinting = false;
-			}
-			else if (Input.IsActionPressed("Sprint"))
+			// if (Input.IsActionPressed("Walk"))
+			// {
+			// 	walking = true;
+			// 	running = false;
+			// 	sprinting = false;
+			// }
+			if (Input.IsActionPressed("Sprint"))
 			{
 				walking = false;
 				running = false;
@@ -93,17 +101,17 @@ public partial class PlayerController : CharacterBody3D
 		}
 
 		// Manage crouching / sliding
-		if (Input.IsActionPressed("Crouch"))
-		{
-			hiding = true;
-			crouching = true;
-		}
-		else
-		{
-			hiding = false;
-			crouching = false;
-		}
-		SetScale();
+		// if (Input.IsActionPressed("Crouch"))
+		// {
+		// 	hiding = true;
+		// 	crouching = true;
+		// }
+		// else
+		// {
+		// 	hiding = false;
+		// 	crouching = false;
+		// }
+		// SetScale();
 
 		// Manage hiding
 		if (hiding && !GetChildren().Contains(hideBox))
@@ -114,6 +122,21 @@ public partial class PlayerController : CharacterBody3D
 		{
 			RemoveChild(hideBox);
 		}
+	}
+
+	void ManageAnimation()
+	{
+		bool idle = true;
+
+		// Check if player's moving
+		if (Velocity.Length() >= MOVING_THRESHOLD)
+			idle = false;
+		
+		// Assign values
+		animationTree.Set("parameters/conditions/idle", idle);
+		animationTree.Set("parameters/conditions/moving", !idle);
+		animationTree.Set("parameters/conditions/sprinting", sprinting);
+		animationTree.Set("parameters/conditions/not_sprinting", !sprinting);
 	}
 
 	void ManageMovement()
