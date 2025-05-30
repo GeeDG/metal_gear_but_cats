@@ -24,7 +24,7 @@ waitTime = 1.0
 lookAtPatience = 1.0
 
 [node name="Vision Cone" type="Area3D" parent="."]
-transform = Transform3D(5, 0, -7.62298e-23, -7.62298e-23, -2.18557e-07, -5, 0, 5, -2.18557e-07, 2.08165e-12, 2.08165e-12, -4.823)
+transform = Transform3D(7, 0, -1.05036e-22, -8.51567e-31, -3.0598e-07, -7, 0, 7, -3.0598e-07, 2.08249e-12, 0, -7.24391)
 collision_mask = 2
 script = ExtResource("2_tdyhi")
 
