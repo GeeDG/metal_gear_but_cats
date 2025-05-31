@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://vpvmf4pyc0jy"]
+[gd_scene load_steps=8 format=3 uid="uid://vpvmf4pyc0jy"]
 
 [ext_resource type="Script" path="res://Scripts/General/GameManager.cs" id="1_bosqc"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraManager.cs" id="1_uepaw"]
 [ext_resource type="Script" path="res://Scripts/General/PlayerHealthManager.cs" id="2_lrtv5"]
+[ext_resource type="Script" path="res://Scripts/General/Alarm.cs" id="2_wa6cn"]
 [ext_resource type="Material" uid="uid://bkdr5bjqeiu4t" path="res://Materials/Test/End Screen.tres" id="4_tu37h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkqoq"]
@@ -14,6 +15,9 @@ bg_color = Color(1, 0, 0, 1)
 process_mode = 3
 script = ExtResource("1_bosqc")
 loseThreshold = 5
+
+[node name="Alarm" type="Node" parent="."]
+script = ExtResource("2_wa6cn")
 
 [node name="Player Camera" type="Camera3D" parent="."]
 script = ExtResource("1_uepaw")

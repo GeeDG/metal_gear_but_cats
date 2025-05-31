@@ -16,14 +16,14 @@ public partial class GameManager : Node
 	{
 		GetTree().Paused = false;
 
-		playerHealthManager = GetChild<PlayerHealthManager>(1);
+		playerHealthManager = GetNode<PlayerHealthManager>("/root/" + GetTree().Root.GetChild(0).Name + "/Game Manager/Player Health");
 		playerHasKey = false;
 
 		playerHealthManager.Visible = true;
 
-		loseScreen = GetChild<Node2D>(2);
+		loseScreen = GetNode<Node2D>("/root/" + GetTree().Root.GetChild(0).Name + "/Game Manager/Lose Screen");
 		loseScreen.Visible = false;
-		winScreen = GetChild<Node2D>(3);
+		winScreen = GetNode<Node2D>("/root/" + GetTree().Root.GetChild(0).Name + "/Game Manager/Win Screen");
 		winScreen.Visible = false;
 	}
 

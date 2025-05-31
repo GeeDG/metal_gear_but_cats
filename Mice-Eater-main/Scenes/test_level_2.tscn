@@ -124,6 +124,8 @@ size = Vector3(7, 1, 7)
 
 [node name="test_level_2" type="Node3D"]
 
+[node name="Game Manager" parent="." instance=ExtResource("5_75raa")]
+
 [node name="Player" type="Node" parent="."]
 
 [node name="Player" parent="Player" instance=ExtResource("2_s2fvp")]
@@ -463,13 +465,14 @@ patrolPointWaitTime = 2.0
 suspiciousSpeed = 6.0
 
 [node name="CCTV" parent="Enemies" instance=ExtResource("7_a2rfq")]
-transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 7.67078, 7.11117, -59.3936)
-from = 180.0
-to = -90.0
+transform = Transform3D(-0.984808, 4.04054e-16, 0.173648, 3.48787e-16, 1, -3.48787e-16, -0.173648, -2.82922e-16, -0.984808, 5.276, 7.1, -60.606)
+from = -90.0
+to = -180.0
 
 [node name="CCTV2" parent="Enemies" instance=ExtResource("7_a2rfq")]
-transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 84.5653, 7.11117, -14.7888)
-from = -180.0
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 85.286, 7.1, -15.0796)
+from = 90.0
+to = 180.0
 
 [node name="Patrol Points" type="Node" parent="."]
 
@@ -524,8 +527,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Ambient"]
 environment = SubResource("Environment_88aeb")
-
-[node name="Game Manager" parent="." instance=ExtResource("5_75raa")]
 
 [node name="Camera Overrides" type="Node" parent="."]
 
