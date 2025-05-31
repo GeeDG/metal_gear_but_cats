@@ -51,7 +51,7 @@ offset_bottom = 100.0
 [node name="ProgressBar" type="ProgressBar" parent="Player Health"]
 offset_top = 25.0
 offset_right = 168.0
-offset_bottom = 35.0
+offset_bottom = 45.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_pkqoq")
 show_percentage = false
 
