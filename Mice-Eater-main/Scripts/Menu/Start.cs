@@ -5,6 +5,6 @@ public partial class Start : Button
 {
 	public void StartGame()
 	{
-		GetTree().ChangeSceneToFile("res://Scenes/test_level_2.tscn");
+		GetTree().ChangeSceneToFile("res://Scenes/level_v1.tscn");
 	}
 }

@@ -42,10 +42,6 @@ folder_colors={
 "res://Scripts/": "purple"
 }
 
-[filesystem]
-
-import/fbx/enabled=false
-
 [input]
 
 Up={
