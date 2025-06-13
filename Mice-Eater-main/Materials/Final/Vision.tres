@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dpuitbiuhjpcd"]
+
+[ext_resource type="Shader" uid="uid://dps4va8530uh5" path="res://Materials/Final/Vision Shader.tres" id="1_u6oci"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_u6oci")

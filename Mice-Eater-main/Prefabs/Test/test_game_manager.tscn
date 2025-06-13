@@ -1,21 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://vpvmf4pyc0jy"]
+[gd_scene load_steps=8 format=3 uid="uid://vpvmf4pyc0jy"]
 
 [ext_resource type="Script" path="res://Scripts/General/GameManager.cs" id="1_bosqc"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraManager.cs" id="1_uepaw"]
 [ext_resource type="Script" path="res://Scripts/General/PlayerHealthManager.cs" id="2_lrtv5"]
+[ext_resource type="Script" path="res://Scripts/General/Alarm.cs" id="2_wa6cn"]
+[ext_resource type="Material" uid="uid://bkdr5bjqeiu4t" path="res://Materials/Test/End Screen.tres" id="4_tu37h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkqoq"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_24r0u"]
 
 [node name="Game Manager" type="Node"]
 process_mode = 3
 script = ExtResource("1_bosqc")
 loseThreshold = 5
 
+[node name="Alarm" type="Node" parent="."]
+script = ExtResource("2_wa6cn")
+
 [node name="Player Camera" type="Camera3D" parent="."]
 script = ExtResource("1_uepaw")
 
-[node name="Player Health" type="Node2D" parent="." node_paths=PackedStringArray("fearLevelTest", "fearDamageTest")]
+[node name="Player Health" type="Node2D" parent="." node_paths=PackedStringArray("fearLevelTest", "fearDamageTest", "testTextureProgressBar", "testProgressBar")]
 script = ExtResource("2_lrtv5")
 fearLevelTest = NodePath("Fear")
 fearDamageTest = NodePath("Fear2")
+testTextureProgressBar = NodePath("TextureProgressBar")
+testProgressBar = NodePath("ProgressBar")
 damageThreshold = 10.0
 guardDPS = 0.1
 calmRate = 1.0
@@ -23,23 +35,43 @@ calmRate = 1.0
 [node name="Fear" type="Label" parent="Player Health"]
 offset_right = 40.0
 offset_bottom = 23.0
+text = "Fear level
+"
 
 [node name="Fear2" type="Label" parent="Player Health"]
+visible = false
 offset_top = 100.0
 offset_right = 40.0
 offset_bottom = 123.0
+text = "Fear damage
+"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Player Health"]
+visible = false
+offset_top = 60.0
+offset_right = 40.0
+offset_bottom = 100.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Player Health"]
+offset_top = 25.0
+offset_right = 168.0
+offset_bottom = 45.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_pkqoq")
+show_percentage = false
 
 [node name="Lose Screen" type="Node2D" parent="."]
 
+[node name="Sprite2D" type="Sprite2D" parent="Lose Screen"]
+material = ExtResource("4_tu37h")
+position = Vector2(576, 333.5)
+scale = Vector2(1172, 689)
+texture = SubResource("PlaceholderTexture2D_24r0u")
+
 [node name="Label" type="Label" parent="Lose Screen"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 500.0
-offset_top = 200.0
-offset_right = 700.0
-offset_bottom = 250.0
-grow_horizontal = 2
+offset_left = 404.0
+offset_top = 197.0
+offset_right = 604.0
+offset_bottom = 247.0
 scale = Vector2(2, 2)
 text = "You lose :("
 horizontal_alignment = 1
@@ -61,15 +93,22 @@ focus_mode = 0
 text = "Exit"
 
 [node name="Win Screen" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Win Screen"]
+material = ExtResource("4_tu37h")
+position = Vector2(576, 333.5)
+scale = Vector2(1172, 689)
+texture = SubResource("PlaceholderTexture2D_24r0u")
 
 [node name="Label" type="Label" parent="Win Screen"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 500.0
-offset_top = 200.0
-offset_right = 700.0
-offset_bottom = 250.0
+offset_left = 404.0
+offset_top = 197.0
+offset_right = 604.0
+offset_bottom = 247.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
 text = "You win :)"

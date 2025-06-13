@@ -11,7 +11,7 @@ public partial class Vision : Area3D
 	Array<Node3D> focusVisionResults;
 	Node3D parent;
 	// Player vision variables
-	const float awarenessGrowth = 10f;
+	const float awarenessGrowth = 40f;
 	const float maxAwareness = 20f;
 	float awareness;
 	public Vector3? playerPosition;
@@ -82,9 +82,9 @@ public partial class Vision : Area3D
 		PhysicsRayQueryParameters3D ray;
 
 		if (focus)
-			ray = PhysicsRayQueryParameters3D.Create(parent.GlobalPosition, target, 0b00000000_00000000_00000000_00001000);
+			ray = PhysicsRayQueryParameters3D.Create(parent.GlobalPosition, target, 0b00000000_00000000_00000000_00001001);
 		else
-			ray = PhysicsRayQueryParameters3D.Create(parent.GlobalPosition, target, 0b00000000_00000000_00000000_00001100);
+			ray = PhysicsRayQueryParameters3D.Create(parent.GlobalPosition, target, 0b00000000_00000000_00000000_00001101);
 
 		var result = space.IntersectRay(ray);
 

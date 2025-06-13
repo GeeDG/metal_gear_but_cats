@@ -3,6 +3,8 @@ using System;
 
 public partial class CCTV : Node3D
 {
+	[Signal] public delegate void SetGlobalStateEventHandler(bool state);
+
 	// CCTV rotation variables
 	Vector3 rotationVector;
 	[Export] public float tilt;
@@ -20,6 +22,8 @@ public partial class CCTV : Node3D
 	
 	public override void _Ready()
 	{
+		//SetGlobalState += GetNode<Alarm>("/root/" + GetTree().Root.GetChild(0).Name + "/Game Manager/Alarm").SendCall;
+
 		rotationVector = new Vector3(Mathf.DegToRad(tilt), Mathf.DegToRad(from), 0f);
 		Rotation = rotationVector;
 
@@ -35,7 +39,7 @@ public partial class CCTV : Node3D
 		// Rotate camera
 		if (absentPlayerTime >= lookAtPatience)
 		{
-			GetTree().CallGroup("Guards", "GlobalChase", false);
+			EmitSignal(SignalName.SetGlobalState, false);
 			RotationManager((float) delta);
 		}
 		else
@@ -98,6 +102,8 @@ public partial class CCTV : Node3D
 		Rotation = rotationVector;
 
 		// Signal GlobalChase
-		GetTree().CallGroup("Guards", "GlobalChase", true);
+		if (!IsConnected(SignalName.SetGlobalState, GetNode<Alarm>("/root/" + GetTree().Root.GetChild(0).Name + "/Game Manager/Alarm").callable))
+			Connect(SignalName.SetGlobalState, GetNode<Alarm>("/root/" + GetTree().Root.GetChild(0).Name + "/Game Manager/Alarm").callable);
+		EmitSignal(SignalName.SetGlobalState, true);
 	}
 }

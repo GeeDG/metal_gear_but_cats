@@ -200,7 +200,7 @@ public partial class Guard : CharacterBody3D
 		animationTree.Set("parameters/conditions/idle", idle);
 		animationTree.Set("parameters/conditions/moving", !idle);
 		animationTree.Set("parameters/conditions/running", running);
-		animationTree.Set("parameters/conditions/running", !running);
+		animationTree.Set("parameters/conditions/not_running", !running);
 	}
 
 	//------------------------------------------------------------------------

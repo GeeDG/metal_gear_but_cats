@@ -1,14 +1,14 @@
-[gd_scene load_steps=48 format=3 uid="uid://bygt3bhmrqrd8"]
+[gd_scene load_steps=47 format=3 uid="uid://bygt3bhmrqrd8"]
 
-[ext_resource type="Texture2D" uid="uid://b5ia55v1ed2ne" path="res://Imports/door.png" id="2_fkwrn"]
+[ext_resource type="Texture2D" uid="uid://b5ia55v1ed2ne" path="res://Imports/pngs/door.png" id="2_fkwrn"]
 [ext_resource type="PackedScene" uid="uid://btr8mpar2vywo" path="res://Prefabs/Test/test_player.tscn" id="2_s2fvp"]
-[ext_resource type="Texture2D" uid="uid://bwmf76ti5o1qh" path="res://Imports/key.png" id="3_h5hjc"]
-[ext_resource type="Texture2D" uid="uid://uvo8ivkvuuys" path="res://Imports/elevator.png" id="4_kvra5"]
-[ext_resource type="Texture2D" uid="uid://tn1xvndsjbb1" path="res://Imports/key_indicator_right.png" id="4_y8weu"]
+[ext_resource type="Texture2D" uid="uid://bwmf76ti5o1qh" path="res://Imports/pngs/key.png" id="3_h5hjc"]
+[ext_resource type="Texture2D" uid="uid://uvo8ivkvuuys" path="res://Imports/pngs/elevator.png" id="4_kvra5"]
+[ext_resource type="Texture2D" uid="uid://tn1xvndsjbb1" path="res://Imports/pngs/key_indicator_right.png" id="4_y8weu"]
 [ext_resource type="PackedScene" uid="uid://vpvmf4pyc0jy" path="res://Prefabs/Test/test_game_manager.tscn" id="5_75raa"]
 [ext_resource type="Texture2D" uid="uid://n8437jffxkun" path="res://Imports/kenney_prototype-textures/PNG/Dark/texture_01.png" id="5_ahh2h"]
-[ext_resource type="Texture2D" uid="uid://5quag68mqotf" path="res://Imports/command_indications.jpeg" id="5_beag1"]
-[ext_resource type="Texture2D" uid="uid://cegrax1unkiu2" path="res://Imports/findexit.png" id="6_87j76"]
+[ext_resource type="Texture2D" uid="uid://5quag68mqotf" path="res://Imports/pngs/command_indications.jpeg" id="5_beag1"]
+[ext_resource type="Texture2D" uid="uid://cegrax1unkiu2" path="res://Imports/pngs/findexit.png" id="6_87j76"]
 [ext_resource type="PackedScene" uid="uid://cjbi3o5v5u4nh" path="res://Prefabs/Test/test_cctv.tscn" id="7_a2rfq"]
 [ext_resource type="PackedScene" uid="uid://bpdwao6x67lmg" path="res://Prefabs/Test/test_guard.tscn" id="8_7adj8"]
 [ext_resource type="Script" path="res://Scripts/Events/Key.cs" id="8_qkgxj"]
@@ -110,9 +110,6 @@ size = Vector3(9.35071, 5, 8.54834)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2n3nv"]
 size = Vector3(3.31416, 5.25391, 3.79346)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xewmt"]
-size = Vector3(3.31416, 5.25391, 2.01147)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_xcrlx"]
 size = Vector3(4, 3, 2)
 
@@ -127,10 +124,13 @@ size = Vector3(7, 1, 7)
 
 [node name="test_level_2" type="Node3D"]
 
+[node name="Game Manager" parent="." instance=ExtResource("5_75raa")]
+
 [node name="Player" type="Node" parent="."]
 
 [node name="Player" parent="Player" instance=ExtResource("2_s2fvp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8296, 1.82213, 3.10071)
+sprintSpeed = 10.0
 
 [node name="Environment" type="Node" parent="."]
 
@@ -450,18 +450,29 @@ texture = ExtResource("6_87j76")
 
 [node name="Guard 2" parent="Enemies" node_paths=PackedStringArray("patrolPoints") instance=ExtResource("8_7adj8")]
 transform = Transform3D(-1, 3.48787e-16, -1.50996e-07, 3.48787e-16, 1, -3.48787e-16, 1.50996e-07, -3.48787e-16, -1, 51, 1, -22)
+chaseSpeed = 6.0
+patrolSpeed = 4.0
 patrolPoints = [NodePath("../../Patrol Points/Guard 2 Points/Node3D"), NodePath("../../Patrol Points/Guard 2 Points/Node3D2"), NodePath("../../Patrol Points/Guard 2 Points/Node3D3"), NodePath("../../Patrol Points/Guard 2 Points/Node3D4"), NodePath("../../Patrol Points/Guard 2 Points/Node3D5"), NodePath("../../Patrol Points/Guard 2 Points/Node3D6")]
 patrolPointWaitTime = 2.0
+suspiciousSpeed = 6.0
 
 [node name="Guard 1" parent="Enemies" node_paths=PackedStringArray("patrolPoints") instance=ExtResource("8_7adj8")]
 transform = Transform3D(-1, 3.48787e-16, -1.50996e-07, 3.48787e-16, 1, -3.48787e-16, 1.50996e-07, -3.48787e-16, -1, 10, 1, -55)
+chaseSpeed = 6.0
+patrolSpeed = 4.0
 patrolPoints = [NodePath("../../Patrol Points/Guard 1 Points/Node3D7"), NodePath("../../Patrol Points/Guard 1 Points/Node3D6"), NodePath("../../Patrol Points/Guard 1 Points/Node3D5"), NodePath("../../Patrol Points/Guard 1 Points/Node3D4"), NodePath("../../Patrol Points/Guard 1 Points/Node3D3"), NodePath("../../Patrol Points/Guard 1 Points/Node3D2"), NodePath("../../Patrol Points/Guard 1 Points/Node3D")]
 patrolPointWaitTime = 2.0
+suspiciousSpeed = 6.0
 
 [node name="CCTV" parent="Enemies" instance=ExtResource("7_a2rfq")]
-transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 7.67078, 7.11117, -59.3936)
-from = 180.0
-to = -90.0
+transform = Transform3D(-0.984808, 4.04054e-16, 0.173648, 3.48787e-16, 1, -3.48787e-16, -0.173648, -2.82922e-16, -0.984808, 5.276, 7.1, -60.606)
+from = -90.0
+to = -180.0
+
+[node name="CCTV2" parent="Enemies" instance=ExtResource("7_a2rfq")]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 85.286, 7.1, -15.0796)
+from = 90.0
+to = 180.0
 
 [node name="Patrol Points" type="Node" parent="."]
 
@@ -516,8 +527,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Ambient"]
 environment = SubResource("Environment_88aeb")
-
-[node name="Game Manager" parent="." instance=ExtResource("5_75raa")]
 
 [node name="Camera Overrides" type="Node" parent="."]
 
@@ -583,17 +592,6 @@ fixedPosition = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05955, 0.126953, 3.4598)
 shape = SubResource("BoxShape3D_2n3nv")
 
-[node name="Camera Override7" type="Area3D" parent="Camera Overrides"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82999, 2.4515, -45.2455)
-collision_mask = 16
-script = ExtResource("9_6mxs5")
-cameraPosition = Vector3(49.4931, 9.38248, -58.8204)
-fixedPosition = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera Overrides/Camera Override7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05955, 0.126953, 2.56881)
-shape = SubResource("BoxShape3D_xewmt")
-
 [node name="Events" type="Node" parent="."]
 
 [node name="Key" type="Area3D" parent="Events"]
@@ -637,7 +635,7 @@ shape = SubResource("BoxShape3D_kasxq")
 mesh = SubResource("BoxMesh_tfebo")
 
 [node name="Noise Generator2" type="Area3D" parent="Events"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.095, 0, -35.1981)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.9036, 0, -35.1981)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("12_j2uyq")

@@ -16,12 +16,14 @@ public partial class GameManager : Node
 	{
 		GetTree().Paused = false;
 
-		playerHealthManager = GetChild<PlayerHealthManager>(1);
+		playerHealthManager = GetNode<PlayerHealthManager>("/root/" + GetTree().Root.GetChild(0).Name + "/Game Manager/Player Health");
 		playerHasKey = false;
 
-		loseScreen = GetChild<Node2D>(2);
+		playerHealthManager.Visible = true;
+
+		loseScreen = GetNode<Node2D>("/root/" + GetTree().Root.GetChild(0).Name + "/Game Manager/Lose Screen");
 		loseScreen.Visible = false;
-		winScreen = GetChild<Node2D>(3);
+		winScreen = GetNode<Node2D>("/root/" + GetTree().Root.GetChild(0).Name + "/Game Manager/Win Screen");
 		winScreen.Visible = false;
 	}
 
@@ -50,6 +52,7 @@ public partial class GameManager : Node
 	{
 		if (playerHealthManager.fearLevel >= loseThreshold)
 		{
+			playerHealthManager.Visible = false;
 			GetTree().Paused = true;
 			loseScreen.Visible = true;
 		}
@@ -59,6 +62,7 @@ public partial class GameManager : Node
 	{
 		if (playerHasKey)
 		{
+			playerHealthManager.Visible = false;
 			GetTree().Paused = true;
 			winScreen.Visible = true;
 		}
