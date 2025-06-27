@@ -40,7 +40,7 @@ public partial class GameManager : Node
 
 	public void HardReset()
 	{
-		GetTree().ChangeSceneToFile("res://Scenes/test_menu.tscn");
+		GetTree().ChangeSceneToFile("res://Scenes/test_menu_2.tscn");
 	}
 
 	public void SoftReset()

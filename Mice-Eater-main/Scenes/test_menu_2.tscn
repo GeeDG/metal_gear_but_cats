@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://crg0tbuaxkqah"]
+
+[ext_resource type="Script" path="res://Scripts/Menu/Start.cs" id="1_it0go"]
+[ext_resource type="Material" uid="uid://bcku6oqtjbd2x" path="res://Materials/Final/Desert.tres" id="2_btwai"]
+[ext_resource type="Texture2D" uid="uid://cystw0oexpfk6" path="res://Imports/pngs/Mice_Eater_logo_rosso.png" id="3_nxupm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vlqtr"]
+sky_top_color = Color(0, 0, 0.517647, 1)
+sky_horizon_color = Color(0.514706, 0.5, 0.715686, 1)
+ground_bottom_color = Color(0.0588235, 0, 0.345098, 1)
+ground_horizon_color = Color(0.514706, 0.5, 0.715686, 1)
+
+[sub_resource type="Sky" id="Sky_sybdo"]
+sky_material = SubResource("ProceduralSkyMaterial_vlqtr")
+
+[sub_resource type="Environment" id="Environment_h4mmb"]
+background_mode = 2
+sky = SubResource("Sky_sybdo")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nrnxe"]
+size = Vector2(50, 50)
+
+[node name="Node3D" type="Node3D"]
+process_mode = 3
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h4mmb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.5, 0.671122, -0.547353, 0, 0.632029, 0.774944, 0.866025, 0.387472, -0.316015, 0, 0, 0)
+light_color = Color(0, 0, 1, 1)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Start" type="Button" parent="Node2D" node_paths=PackedStringArray("spotLight3D")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 426.0
+offset_top = 400.0
+offset_right = 726.0
+offset_bottom = 545.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "Start
+"
+script = ExtResource("1_it0go")
+path = "res://Scenes/level_v2_2.tscn"
+spotLight3D = NodePath("../../Camera3D/SpotLight3D")
+newMenu = true
+swaySpeedH = 0.5
+swayRadiusH = 0.2
+swaySpeedV = 0.75
+swayRadiusV = 0.1
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.79, 2.08165e-12)
+mesh = SubResource("PlaneMesh_nrnxe")
+material = ExtResource("2_btwai")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 0, 2.62832, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
+transform = Transform3D(1, 0, -6.09732e-31, 0, 1, 0, -6.09732e-31, 0, 1, 2.08165e-12, 2.08165e-12, 0.151)
+light_color = Color(1, 1, 0, 1)
+light_energy = 9.97
+light_specular = 2.197
+shadow_enabled = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, -6.97574e-17, -3.04919e-24, 0, -4.37114e-09, 0.1, -6.97574e-17, -0.1, -4.37114e-09, 2.08165e-12, 1.629, -0.273)
+alpha_cut = 2
+texture = ExtResource("3_nxupm")
+
+[connection signal="pressed" from="Node2D/Start" to="Node2D/Start" method="StartGame"]

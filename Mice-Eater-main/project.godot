@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Mice-Eater"
-run/main_scene="res://Scenes/test_menu.tscn"
+run/main_scene="res://Scenes/test_menu_2.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -41,10 +41,6 @@ folder_colors={
 "res://Scenes/": "green",
 "res://Scripts/": "purple"
 }
-
-[filesystem]
-
-import/fbx/enabled=false
 
 [input]
 
