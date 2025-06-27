@@ -48,12 +48,12 @@ text = "Start
 "
 script = ExtResource("1_it0go")
 path = "res://Scenes/level_v2_2.tscn"
-spotLight3D = NodePath("../../Camera3D/SpotLight3D")
 newMenu = true
 swaySpeedH = 0.5
 swayRadiusH = 0.2
 swaySpeedV = 0.75
 swayRadiusV = 0.1
+spotLight3D = NodePath("../../Camera3D/SpotLight3D")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.79, 2.08165e-12)
